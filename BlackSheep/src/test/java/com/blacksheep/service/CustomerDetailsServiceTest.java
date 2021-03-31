@@ -1,0 +1,25 @@
+package com.blacksheep.service;
+
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.jupiter.api.Assertions.assertNotEquals;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
+class CustomerDetailsServiceTest {
+
+	@Test
+	public void generate_encrypted_password() {
+		String password = "123";
+		BCryptPasswordEncoder encoder =  new BCryptPasswordEncoder();
+		String encodedPassword = encoder.encode(password);
+		System.out.println(encodedPassword);
+		assertNotEquals(password, encodedPassword);
+//		assertThat(password, is(not(equalTo(encodedPassword));
+	}
+
+}

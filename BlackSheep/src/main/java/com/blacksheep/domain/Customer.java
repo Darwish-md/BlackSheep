@@ -1,8 +1,11 @@
 package com.blacksheep.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,7 +28,7 @@ public class Customer {
 	private String postalCode;
 	private String city;
 	
-	private Set<Authority> authorities;
+	private Set<Authority> authorities = new HashSet();
 	
 	private Set<Order> orders;
 	
@@ -102,7 +105,7 @@ public class Customer {
 	}
 
 	
-	@OneToMany(mappedBy = "customer")
+	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
 	public Set<Order> getOrders() {
 		return orders;
 	}
@@ -112,7 +115,7 @@ public class Customer {
 	}
 
 	
-	@OneToMany(mappedBy = "customer")
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	public Set<Authority> getAuthorities() {
 		return authorities;
 	}

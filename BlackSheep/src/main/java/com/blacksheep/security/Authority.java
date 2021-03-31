@@ -41,7 +41,7 @@ public class Authority implements GrantedAuthority{
 		this.id = id;
 	}
 
-	@ManyToOne(cascade = CascadeType.ALL)
+	@ManyToOne
 	@JoinColumn(name = "customer_id", nullable = false)
 	public Customer getCustomer() {
 		return customer;
