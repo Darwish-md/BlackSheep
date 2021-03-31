@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BlackSheep</title>
+
+</head>
+
+<body>
+	<h1>Welcome to BlackSheep Registeration Page</h1>
+	<form action="" method="post">
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		firstName: <input type="text" th:field="${customer.firstName}" /><br>
+		lastName: <input type="text" th:field="${customer.lastName}" /><br>
+		email: <input type="email" th:field="${customer.email}" /><br>
+		password: <input type="password" th:field="${customer.password}" /><br>
+		phone: <input type="text" th:field="${customer.phone}" /><br>
+		streetAddress: <input type="text" th:field="${customer.streetAddress}" /><br>
+		postalCode: <input type="number" th:field="${customer.postalCode}" /><br>
+		city: <input type="text" th:field="${customer.city}" /><br>
+		<button type="submit">Register Me</button>
+	</form>
+
+</body>
+
+</html>

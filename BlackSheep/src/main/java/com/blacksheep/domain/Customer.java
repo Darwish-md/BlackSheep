@@ -28,7 +28,7 @@ public class Customer {
 	private String postalCode;
 	private String city;
 	
-	private Set<Authority> authorities = new HashSet();
+	private Set<Authority> authorities = new HashSet<>();
 	
 	private Set<Order> orders;
 	
@@ -124,8 +124,14 @@ public class Customer {
 		this.authorities = authorities;
 	}
 
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ", phone=" + phone + ", streetAddress=" + streetAddress + ", postalCode="
+				+ postalCode + ", city=" + city + ", authorities=" + authorities + ", orders=" + orders + "]";
+	}
+
 	
 	
-	
-	
+
 }

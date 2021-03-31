@@ -10,7 +10,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
-import com.blacksheep.service.CustomerDetailsServiceImpl;
 
 @Configuration
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -35,6 +34,7 @@ private UserDetailsService userDetailsService;
 		http
 			.authorizeRequests()
 				.antMatchers("/").permitAll()
+				.antMatchers("/register").permitAll()
 				.anyRequest().hasRole("CUSTOMER").and()
 			.formLogin()
 				.loginPage("/login")
