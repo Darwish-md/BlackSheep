@@ -10,20 +10,21 @@
 </head>
 
 <body>
-	<h1>Welcome to BlackSheep Gift Shop</h1>
+	<h1>Welcome to BlackSheep Login Page</h1>
 	<form action="" method="post">
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
 		<fieldset>
 			<legend>Please Login</legend>
 			<div th:if="${param.error != null}">
-					Failed to login.
-					<div th:if="${SPRING_SECURITY_LAST_EXCEPTION != null}">
-						Reason:	
-						<span th:text ="${SPRING_SECURITY_LAST_EXCEPTION.message}" ></span>
-					</div>
+				Failed to login.
+				<div th:if="${SPRING_SECURITY_LAST_EXCEPTION != null}">
+					Reason:
+					<span th:text="${SPRING_SECURITY_LAST_EXCEPTION.message}"></span>
+				</div>
 			</div>
 			<!-- the configured LogoutConfigurer#logoutSuccessUrl is /login?logout and contains the query param logout -->
 			<div th:if="${param.logout != null}">
-					You have been logged out.
+				You have been logged out.
 			</div>
 			<p>
 				<label for="username">Username</label>
