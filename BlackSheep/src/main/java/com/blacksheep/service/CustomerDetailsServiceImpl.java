@@ -5,6 +5,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
+import com.blacksheep.domain.Customer;
 import com.blacksheep.repositories.CustomerRepository;
 
 public class CustomerDetailsServiceImpl implements UserDetailsService {
@@ -14,8 +15,12 @@ public class CustomerDetailsServiceImpl implements UserDetailsService {
 	
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		customerRepo.findByEmail(email);
-		return null;
+		Customer customer = customerRepo.findByEmail(email);
+		
+		if (customer == null) 
+				throw new UsernameNotFoundException("invalid email or password");
+		
+		return customer;
 		
 	}
 
