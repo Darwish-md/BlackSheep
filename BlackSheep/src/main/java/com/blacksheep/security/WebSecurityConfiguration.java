@@ -31,19 +31,17 @@ private UserDetailsService userDetailsService;
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-		.authorizeRequests()
-		.antMatchers("/").permitAll()
-		.anyRequest().hasRole("CUSTOMER").and()
-		.formLogin()
-		.loginPage("/login")
-		.defaultSuccessUrl("/dashboard")
-		.permitAll()
-		.and()
-		.logout()
-		.logoutUrl("/logout")
-		.permitAll();
+			.authorizeRequests()
+				.antMatchers("/").permitAll()
+				.anyRequest().hasRole("CUSTOMER").and()
+			.formLogin()
+				.loginPage("/login")
+				.defaultSuccessUrl("/dashboard")
+				.permitAll().and()
+			.logout()
+				.logoutUrl("/logout")
+				.permitAll();
 		
 	}
 
 }
-

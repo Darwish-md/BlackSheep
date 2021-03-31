@@ -6,8 +6,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.blacksheep.security.Authority;
 
 @Entity
 @Table(name = "customer")
@@ -21,6 +24,8 @@ public class Customer {
 	private String streetAddress;
 	private String postalCode;
 	private String city;
+	
+	private Set<Authority> authorities;
 	
 	private Set<Order> orders;
 	
@@ -105,6 +110,19 @@ public class Customer {
 	public void setOrders(Set<Order> orders) {
 		this.orders = orders;
 	}
+
+	
+	@OneToMany(mappedBy = "customer")
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	
+	
 	
 	
 }

@@ -7,6 +7,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import com.blacksheep.domain.Customer;
 import com.blacksheep.repositories.CustomerRepository;
+import com.blacksheep.security.CustomSecurity;
 
 public class CustomerDetailsServiceImpl implements UserDetailsService {
 
@@ -20,7 +21,7 @@ public class CustomerDetailsServiceImpl implements UserDetailsService {
 		if (customer == null) 
 				throw new UsernameNotFoundException("invalid email or password");
 		
-		return customer;
+		return new CustomSecurity(customer);
 		
 	}
 
