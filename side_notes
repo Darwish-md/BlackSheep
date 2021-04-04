@@ -1,0 +1,4 @@
+1- name the tables so the names don't clash like order, user, etc as mysql have these as reserve keywords.
+2- whenever posting in controllers, use redirect:/{html page name}
+3- dependencies have to match in versions
+4- lazy fetching didn't work, so we used eager. 
