@@ -1,13 +1,19 @@
 package com.blacksheep.domain;
 
+import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.blacksheep.security.Authority;
 
 @Entity
 @Table(name = "customer")
@@ -21,6 +27,8 @@ public class Customer {
 	private String streetAddress;
 	private String postalCode;
 	private String city;
+	
+	private Set<Authority> authorities = new HashSet<>();
 	
 	private Set<Order> orders;
 	
@@ -97,7 +105,7 @@ public class Customer {
 	}
 
 	
-	@OneToMany(mappedBy = "customer")
+	@OneToMany(mappedBy = "customer", fetch = FetchType.EAGER)
 	public Set<Order> getOrders() {
 		return orders;
 	}
@@ -105,6 +113,25 @@ public class Customer {
 	public void setOrders(Set<Order> orders) {
 		this.orders = orders;
 	}
+
+	
+	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	public Set<Authority> getAuthorities() {
+		return authorities;
+	}
+
+	public void setAuthorities(Set<Authority> authorities) {
+		this.authorities = authorities;
+	}
+
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
+				+ ", password=" + password + ", phone=" + phone + ", streetAddress=" + streetAddress + ", postalCode="
+				+ postalCode + ", city=" + city + ", authorities=" + authorities + ", orders=" + orders + "]";
+	}
+
 	
 	
+
 }

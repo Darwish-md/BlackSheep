@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+
 @Configuration
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
@@ -31,19 +32,18 @@ private UserDetailsService userDetailsService;
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-		.authorizeRequests()
-		.antMatchers("/").permitAll()
-		.anyRequest().hasRole("CUSTOMER").and()
-		.formLogin()
-		.loginPage("/login")
-		.defaultSuccessUrl("/dashboard")
-		.permitAll()
-		.and()
-		.logout()
-		.logoutUrl("/logout")
-		.permitAll();
+			.authorizeRequests()
+				.antMatchers("/").permitAll()
+				.antMatchers("/register").permitAll()
+				.anyRequest().hasRole("CUSTOMER").and()
+			.formLogin()
+				.loginPage("/login")
+				.permitAll()
+				.defaultSuccessUrl("/dashboard").and()
+			.logout()
+				.logoutUrl("/logout")
+				.permitAll();
 		
 	}
 
 }
-
