@@ -6,6 +6,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+enum Category {
+	WATCH, SHIRT, JACKET, ACCESSORY;
+}
+
+enum CategoryGender {
+	MEN, WOMEN, KIDS, UNISEX;
+}
+
 @Entity
 @Table(name = "product")
 public class Product {
@@ -14,15 +22,19 @@ public class Product {
 	private String name;
 	private int unitPrice;
 	private int stockQuantity;
+	private Category category;
+	private CategoryGender categoryGender;
 	
 	public Product() {}	
-	
-	public Product(String name, int unitPrice) {
-		super();
+
+	public Product(String name, int unitPrice, int stockQuantity, Category category, CategoryGender categoryGender) {
 		this.name = name;
 		this.unitPrice = unitPrice;
+		this.stockQuantity = stockQuantity;
+		this.category = category;
+		this.categoryGender = categoryGender;
 	}
-
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	public long getId() {
@@ -49,6 +61,17 @@ public class Product {
 	public void setStockQuantity(int stockQuantity) {
 		this.stockQuantity = stockQuantity;
 	}
-	
+	Category getCategory() {
+		return category;
+	}
+	void setCategory(Category category) {
+		this.category = category;
+	}
+	CategoryGender getCategoryGender() {
+		return categoryGender;
+	}
+	void setCategoryGender(CategoryGender categoryGender) {
+		this.categoryGender = categoryGender;
+	}
 	
 }
