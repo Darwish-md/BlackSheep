@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>BlackSheep</title>
+
+</head>
+
+<body>
+	<h1>Products</h1>
+	<ol style="list-style: none;" th:each="product : ${products}">
+		<li>
+			<ol style="list-style: none;">
+			<li th:text="${product.name}"></li>
+			<li th:text="${product.unitPrice}"></li>
+			<li th:text="${product.stockQuantity}"></li>
+			</ol>
+		</li>
+	</ol>
+	 <form action="@{/products/{productCategory}/filtered_products(productCategory=${products[0].category})}" method="post"> 
+		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+		 <input type="text" th:field="${product.categoryGender}" />	
+		<button type="submit">filter</button>
+	</form>
+</body>
+
+</html>

@@ -6,13 +6,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-enum Category {
-	WATCH, SHIRT, JACKET, ACCESSORY;
-}
-
-enum CategoryGender {
-	MEN, WOMEN, KIDS, UNISEX;
-}
 
 @Entity
 @Table(name = "product")
@@ -22,12 +15,15 @@ public class Product {
 	private String name;
 	private int unitPrice;
 	private int stockQuantity;
-	private Category category;
-	private CategoryGender categoryGender;
+	/*@Enumerated(EnumType.STRING)*/
+	private String category;
+	private String categoryGender;
+	
+	
 	
 	public Product() {}	
 
-	public Product(String name, int unitPrice, int stockQuantity, Category category, CategoryGender categoryGender) {
+	public Product(String name, int unitPrice, int stockQuantity, String category, String categoryGender) {
 		this.name = name;
 		this.unitPrice = unitPrice;
 		this.stockQuantity = stockQuantity;
@@ -61,16 +57,16 @@ public class Product {
 	public void setStockQuantity(int stockQuantity) {
 		this.stockQuantity = stockQuantity;
 	}
-	Category getCategory() {
+	public String getCategory() {
 		return category;
 	}
-	void setCategory(Category category) {
+	public void setCategory(String category) {
 		this.category = category;
 	}
-	CategoryGender getCategoryGender() {
+	public String getCategoryGender() {
 		return categoryGender;
 	}
-	void setCategoryGender(CategoryGender categoryGender) {
+	public void setCategoryGender(String categoryGender) {
 		this.categoryGender = categoryGender;
 	}
 	

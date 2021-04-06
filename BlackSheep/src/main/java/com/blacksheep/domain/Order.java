@@ -1,6 +1,6 @@
 package com.blacksheep.domain;
 
-import java.time.LocalDate;
+import java.util.Date;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -17,13 +17,13 @@ public class Order {
 
 	private long id;
 	private int orderNumber;
-	private LocalDate orderDate;
+	private Date orderDate;
 	private int totalCost;
 	private Customer customer;
 	
 	public Order() {}
 
-	public Order(int orderNumber, LocalDate orderDate, int totalCost) {
+	public Order(int orderNumber, Date orderDate, int totalCost) {
 		super();
 		this.orderNumber = orderNumber;
 		this.orderDate = orderDate;
@@ -45,10 +45,10 @@ public class Order {
 	public void setOrderNumber(int orderNumber) {
 		this.orderNumber = orderNumber;
 	}
-	public LocalDate getOrderDate() {
+	public Date getOrderDate() {
 		return orderDate;
 	}
-	public void setOrderDate(LocalDate orderDate) {
+	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
 	public int getTotalCost() {
