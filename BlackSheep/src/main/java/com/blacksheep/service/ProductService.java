@@ -14,7 +14,13 @@ public class ProductService {
 	@Autowired
 	private ProductRepository productRepo;
 
-	public List<Product> getProducts(Boolean inStock, String category, String categoryGender){
-		return productRepo.findProducts(inStock, category, categoryGender);
+	public List<Product> getProducts(Boolean inStock, String category, String categoryGender, Integer min, Integer max){
+		return productRepo.findProducts(inStock, category, categoryGender, min, max);
 	}
+	
+	public Integer getMaxPrice() {
+		return productRepo.findMaxPrice();
+	}
+	
+	
 }

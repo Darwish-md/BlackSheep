@@ -19,14 +19,20 @@ public class ProductsController {
 
 	@Autowired
 	private ProductService productService;
-
+	
+      
 	@GetMapping("/{productCategory}")
 	public String productsView(@PathVariable String productCategory,
 			@RequestParam(value = "productCategoryGender", required = false) String productCategoryGender,
-			@RequestParam(value = "inStock", required = false) boolean inStock, ModelMap model) {
+			@RequestParam(value = "inStock", required = false) boolean inStock,
+			@RequestParam(value = "min", required = false, defaultValue = "0") Integer min,
+			@RequestParam(value = "max", required = false) Integer max, ModelMap model) {
+		
+		Integer Price = productService.getMaxPrice();
 
+		if (max == null) {max = Price;}
 		List<Product> products = productService.getProducts(inStock, productCategory,
-				productCategoryGender);
+				productCategoryGender, min, max);
 		model.put("products", products);
 
 		return "products";
