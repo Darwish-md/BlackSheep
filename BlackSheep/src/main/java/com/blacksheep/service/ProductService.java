@@ -22,8 +22,11 @@ public class ProductService {
 		return productRepo.findByCategoryGender(categoryGender);
 	}
 
-	public List<Product> getFilteredProducts(String category, Product product) {
-		return productRepo.findFilteredProducts(category, product);
+	public List<Product> getFilteredProducts(String category, String categoryGender) {
+		return productRepo.findByCategoryAndCategoryGender(category, categoryGender);
 	}
 
+	public List<Product> getFilteredInStockProducts(Boolean inStock, String category, String categoryGender){
+		return productRepo.findByCategoryAndCategoryGenderAndstockQuantity(inStock, category, categoryGender);
+	}
 }

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.blacksheep.domain.Product;
 import com.blacksheep.service.ProductService;
@@ -17,26 +18,29 @@ import com.blacksheep.service.ProductService;
 @Controller
 @RequestMapping("/products")
 public class ProductsController {
-	
+
 	@Autowired
 	private ProductService productService;
-	
+
 	@GetMapping("/{productCategory}")
-	public String productsView (@PathVariable String productCategory, ModelMap model) {
-		 List <Product> products = productService.getByCategory(productCategory);
-		 model.put("products", products);
-		 return "products";
+	public String productsView(@PathVariable String productCategory,
+			@RequestParam(value = "productCategoryGender", required = false) String productCategoryGender,
+			@RequestParam(value = "inStock", required = false) boolean inStock, ModelMap model) {
+
+		List<Product> products = productService.getFilteredInStockProducts(inStock, productCategory,
+				productCategoryGender);
+		model.put("products", products);
+
+		return "products";
 	}
-	
-	
-	
-	@PostMapping("/{productCategory}/filtered_products")
-	public String productsView (@PathVariable String productCategory, @ModelAttribute Product product, ModelMap model) {
-		 List <Product> products = productService.getFilteredProducts(productCategory, product);
-		 model.put("products", products);
-		 model.put("product", product);
-		 return "redirect:/products";
+
+	@GetMapping("/{productCategory}/filtered_products")
+	public String productsView(@PathVariable String productCategory,
+			@RequestParam(value = "productCategoryGender", required = false) String productCategoryGender,
+			ModelMap model) {
+		List<Product> products = productService.getFilteredProducts(productCategory, productCategoryGender);
+		model.put("products", products);
+		return "products";
 	}
-	
-	
+
 }
