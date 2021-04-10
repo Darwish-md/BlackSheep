@@ -18,8 +18,7 @@ public class Product {
 	/*@Enumerated(EnumType.STRING)*/
 	private String category;
 	private String categoryGender;
-	
-	
+	private String imageSrc;
 	
 	public Product() {}	
 
@@ -68,6 +67,14 @@ public class Product {
 	}
 	public void setCategoryGender(String categoryGender) {
 		this.categoryGender = categoryGender;
+	}
+
+	public String getImageSrc() {
+		return imageSrc;
+	}
+
+	public void setImageSrc(String imageSrc) {
+		this.imageSrc = imageSrc;
 	}
 	
 }

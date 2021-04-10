@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Checkout Form</title>
+    <link href='https://www.soengsouy.com/favicon.ico' rel='icon' type='image/x-icon'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- library validate -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
+    <!-- style css -->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/Style.css}">
+    <script th:src="@{/scripts/payment_guests.js}" async></script>
+</head>
+<body>
+
+<h2>Checkout Form</h2>
+<div class="row">
+    <div class="col-75">
+        <div class="container">
+            <form id="payment-form" method="POST" action="/payment_guests">
+                <div class="row icon-relative">
+                    <div class="col-50">
+                        <h3>Shipping Address</h3>
+                        <label for="fname"><i class="fa fa-user icon-relative"></i> Full Name</label>
+                        <input type="text" id="fname" name="fullname" placeholder="BlackSheep" required>
+                        
+                        <label for="email"><i class="fa fa-envelope icon-relative"></i> Email</label>
+                        <input type="text" id="email" name="email" placeholder="BlackSheep@gmail.com" required>
+
+                        <label for="adr"><i class="fa fa-address-card-o icon-relative"></i> Street Address</label>
+                        <input type="text" id="adr" name="address" placeholder="110 Debrecen utca" required>
+                        
+
+                        <label for="city"><i class="fa fa-institution icon-relative"></i> City</label>
+                        <input type="text" id="city" name="city" placeholder="Debrecen" required>
+
+                        <div class="row icon-relative">
+                            <div class="col-50">
+                                <label for="state">State</label>
+                                <input type="text" id="state" name="state" placeholder="Hajdu-Bihar"required>
+
+                            </div>
+                            <div class="col-50 icon-relative">
+                                <label for="postalcode">Postal Code</label>
+                                <input type="text" id="postalcode" name="postalcode" placeholder="4280"required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-50">
+                        <h3>Payment</h3>
+                        <label for="fname">Accepted Cards</label>
+                        <div class="icon-container">
+                            <i class="fa fa-cc-visa" style="color:navy;"></i>
+                            <i class="fa fa-cc-amex" style="color:blue;"></i>
+                            <i class="fa fa-cc-mastercard" style="color:red;"></i>
+                            <i class="fa fa-cc-discover" style="color:orange;"></i>
+                        </div>
+
+                        <label for="cname"><i class="fa fa-id-card-o" aria-hidden="true"></i>Name on Card</label>
+                        <input type="text" id="cname" name="cardname" placeholder="BlackSheep"required>
+                
+                        <label for="ccnum"><i class="fa fa-credit-card-alt" aria-hidden="true"></i>Credit card number</label>
+                        <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"required>
+                       
+                        <label for="expmonth"><i class="fa fa-calendar" aria-hidden="true"></i>Exp Month</label>
+                        <input type="text" id="expmonth" name="expmonth" placeholder="April"required>
+                        <div class="row">
+                            <div class="col-50">
+                                <label for="expyear"><i class="fa fa-calendar" aria-hidden="true"></i>Exp Year</label>
+                                <input type="text" id="expyear" name="expyear" placeholder="2021"required>
+                                
+                            </div>
+                            <div class="col-50">
+                                <label for="cvv"><i class="fa fa-lock" aria-hidden="true"></i>CVV</label>
+                                <input type="text" id="cvv" name="cvv" placeholder="352"required>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                    <button type="submit" class="btn">Continue to checkout</button>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- script validate js -->
+</body>
+</html>

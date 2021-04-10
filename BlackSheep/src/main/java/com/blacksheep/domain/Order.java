@@ -2,7 +2,6 @@ package com.blacksheep.domain;
 
 import java.util.Date;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
 
 @Entity
 @Table(name = "orders")
@@ -19,17 +19,14 @@ public class Order {
 	private String orderNumber;
 	private Date orderDate;
 	private Float totalCost;
+	private String streetAddress;
+	private String city;
+	private String state;
+	private String postalCode;
 	private Customer customer;
+	private Guest guest;
 	
 	public Order() {}
-
-	public Order(String orderNumber, Date orderDate, Float totalCost) {
-		super();
-		this.orderNumber = orderNumber;
-		this.orderDate = orderDate;
-		this.totalCost = totalCost;
-	}
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,40 +36,88 @@ public class Order {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
 	public String getOrderNumber() {
 		return orderNumber;
 	}
+
 	public void setOrderNumber(String orderNumber) {
 		this.orderNumber = orderNumber;
 	}
+
 	public Date getOrderDate() {
 		return orderDate;
 	}
+
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
+
 	public Float getTotalCost() {
 		return totalCost;
 	}
+
 	public void setTotalCost(Float totalCost) {
 		this.totalCost = totalCost;
 	}
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "customer_id", nullable = false)
+
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+
+	public void setStreetAddress(String streetAddress) {
+		this.streetAddress = streetAddress;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getPostalCode() {
+		return postalCode;
+	}
+
+	public void setPostalCode(String postalCode) {
+		this.postalCode = postalCode;
+	}
+
+	@ManyToOne
+	@JoinColumn(name = "customer_id")
 	public Customer getCustomer() {
 		return customer;
 	}
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+	
+	@ManyToOne
+	@JoinColumn(name = "guest_id")
+	public Guest getGuest() {
+		return guest;
+	}
+
+	public void setGuest(Guest guest) {
+		this.guest = guest;
+	}
 
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", orderNumber=" + orderNumber + ", orderDate=" + orderDate + ", totalCost="
-				+ totalCost + ", customer=" + customer + "]";
+				+ totalCost + ", streetAddress=" + streetAddress + ", city=" + city + ", state=" + state
+				+ ", postalCode=" + postalCode + ", customer=" + customer + ", guest=" + guest + "]";
 	}
 	
-	
-	
+
 }

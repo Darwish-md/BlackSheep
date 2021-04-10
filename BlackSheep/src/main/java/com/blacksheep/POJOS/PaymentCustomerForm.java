@@ -1,26 +1,26 @@
 package com.blacksheep.POJOS;
 
-import java.util.Arrays;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class PaymentCustomerForm {
-    private Item[] items;
+    private List<Item> items;
     private Float totalPrice;
     
     public PaymentCustomerForm() {
 	}
     
-	public PaymentCustomerForm(Item[] items, Float totalPrice) {
+	public PaymentCustomerForm( List<Item> items, Float totalPrice) {
 		this.items = items;
 		this.totalPrice = totalPrice;
 	}
-	public Item[] getItems() {
+	public  List<Item> getItems() {
 		return items;
 	}
-	public void setItems(Item[] items) {
+	public void setItems( List<Item> items) {
 		this.items = items;
 	}
 	public Float getTotalPrice() {
@@ -32,8 +32,10 @@ public class PaymentCustomerForm {
 
 	@Override
 	public String toString() {
-		return "PaymentCustomerForm [items=" + Arrays.toString(items) + ", totalPrice=" + totalPrice + "]";
+		return "PaymentCustomerForm [items=" + items + ", totalPrice=" + totalPrice + "]";
 	}
+
+	
     
 	
     

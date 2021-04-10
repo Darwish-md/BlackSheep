@@ -9,11 +9,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import com.blacksheep.POJOS.Item;
 import com.blacksheep.POJOS.PaymentCustomerForm;
+import com.blacksheep.POJOS.PaymentGuestForm;
 import com.blacksheep.domain.Customer;
 import com.blacksheep.domain.Order;
 import com.blacksheep.domain.OrderItem;
@@ -34,8 +37,15 @@ public class PaymentController {
 	private ProductRepository productRepo;
 	
 	@GetMapping("/customers_checkout")
-	public String checkoutForm() {
+	public String customersCheckoutForm(ModelMap model, @AuthenticationPrincipal Customer customer) {
+		model.put("customer", customer);
 		return "payment_customers";
+	}
+	
+	@GetMapping("/guests_checkout")
+	public String guestsCheckoutForm() {
+		
+		return "payment_guests";
 	}
   
 	@PostMapping("/payment_customers")
@@ -44,16 +54,17 @@ public class PaymentController {
 		try {
 			Order newOrder = new Order();
 			
-			for (int i=0; i< paymentCustomerForm.getItems().length; i++) {
-				Optional<Product> product = productRepo.findById(paymentCustomerForm.getItems()[i].getId());
+			for (int i=0; i< paymentCustomerForm.getItems().size(); i++) {
+				Optional<Product> product = productRepo.findById(paymentCustomerForm.getItems().get(i).getId());
 				OrderItemId orderItemId = new OrderItemId();
 				OrderItem orderItem = new OrderItem();
 				orderItemId.setOrder(newOrder);
 				orderItemId.setProduct(product);
 				orderItem.setPk(orderItemId);
-				orderItem.setQuantity(paymentCustomerForm.getItems()[i].getNo());
-				orderItem.setUnitPrice(paymentCustomerForm.getItems()[i].getPrice());
+				orderItem.setQuantity(paymentCustomerForm.getItems().get(i).getNo());
+				orderItem.setUnitPrice(paymentCustomerForm.getItems().get(i).getPrice());
 				System.out.println(orderItemId);
+				
 			}
 			
 			newOrder.setOrderNumber("BlackSheep" + newOrder.getId());
@@ -78,4 +89,11 @@ public class PaymentController {
 		}
 	}
 	
+	
+	@PostMapping("/payment_guests")
+	@Transactional
+	public String processGuestPayment(@RequestBody PaymentGuestForm paymentguestForm) throws InternalServerErrorException{
+		
+		return "redirect:/";
+}
 }
