@@ -1,6 +1,7 @@
 package com.blacksheep.domain;
 
 import java.io.Serializable;
+import java.util.Optional;
 
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
@@ -12,6 +13,13 @@ public class OrderItemId implements Serializable{
 	private Product product;
 	private Order order;
 	
+	public OrderItemId() {
+		
+	}
+	public OrderItemId(Product product, Order order) {
+		this.product = product;
+		this.order = order;
+	}
 	@ManyToOne
 	public Product getProduct() {
 		return product;
@@ -37,5 +45,13 @@ public class OrderItemId implements Serializable{
 	public boolean equals(Object obj) {
 		return super.equals(obj);
 	}
+	public void setProduct(Optional<Product> product) {
+		// TODO Auto-generated method stub
+	}
+	@Override
+	public String toString() {
+		return "OrderItemId [product=" + product + ", order=" + order + "]";
+	}
+	
 	
 }

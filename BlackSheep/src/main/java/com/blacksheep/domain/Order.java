@@ -16,14 +16,14 @@ import javax.persistence.Table;
 public class Order {
 
 	private long id;
-	private int orderNumber;
+	private String orderNumber;
 	private Date orderDate;
-	private int totalCost;
+	private Float totalCost;
 	private Customer customer;
 	
 	public Order() {}
 
-	public Order(int orderNumber, Date orderDate, int totalCost) {
+	public Order(String orderNumber, Date orderDate, Float totalCost) {
 		super();
 		this.orderNumber = orderNumber;
 		this.orderDate = orderDate;
@@ -39,10 +39,10 @@ public class Order {
 	public void setId(long id) {
 		this.id = id;
 	}
-	public int getOrderNumber() {
+	public String getOrderNumber() {
 		return orderNumber;
 	}
-	public void setOrderNumber(int orderNumber) {
+	public void setOrderNumber(String orderNumber) {
 		this.orderNumber = orderNumber;
 	}
 	public Date getOrderDate() {
@@ -51,10 +51,10 @@ public class Order {
 	public void setOrderDate(Date orderDate) {
 		this.orderDate = orderDate;
 	}
-	public int getTotalCost() {
+	public Float getTotalCost() {
 		return totalCost;
 	}
-	public void setTotalCost(int totalCost) {
+	public void setTotalCost(Float totalCost) {
 		this.totalCost = totalCost;
 	}
 	
@@ -66,6 +66,13 @@ public class Order {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", orderNumber=" + orderNumber + ", orderDate=" + orderDate + ", totalCost="
+				+ totalCost + ", customer=" + customer + "]";
+	}
+	
 	
 	
 }

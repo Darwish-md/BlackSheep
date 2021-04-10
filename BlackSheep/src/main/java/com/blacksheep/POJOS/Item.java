@@ -1,4 +1,4 @@
-package com.blacksheep.service;
+package com.blacksheep.POJOS;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 

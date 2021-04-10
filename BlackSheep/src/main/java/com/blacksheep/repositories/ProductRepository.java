@@ -1,6 +1,7 @@
 package com.blacksheep.repositories;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -18,5 +19,7 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
 	@Query(value = "select max(unit_price) from product", nativeQuery = true)
 	public Integer findMaxPrice();
+	
+	public Optional<Product> findById(Long id); 
 
 }

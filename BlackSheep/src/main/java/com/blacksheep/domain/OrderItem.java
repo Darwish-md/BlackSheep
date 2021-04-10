@@ -9,7 +9,7 @@ import javax.persistence.Table;
 public class OrderItem {
 	
 	private OrderItemId pk;
-	private int unitPrice;
+	private Float unitPrice;
 	private int quantity;
 	
 	@EmbeddedId
@@ -19,10 +19,10 @@ public class OrderItem {
 	public void setPk(OrderItemId pk) {
 		this.pk = pk;
 	}
-	public int getUnitPrice() {
+	public Float getUnitPrice() {
 		return unitPrice;
 	}
-	public void setUnitPrice(int unitPrice) {
+	public void setUnitPrice(Float unitPrice) {
 		this.unitPrice = unitPrice;
 	}
 	public int getQuantity() {
@@ -31,6 +31,11 @@ public class OrderItem {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	@Override
+	public String toString() {
+		return "OrderItem [pk=" + pk + ", unitPrice=" + unitPrice + ", quantity=" + quantity + "]";
+	}
+	
 	
 	
 }
