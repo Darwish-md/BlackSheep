@@ -65,6 +65,7 @@ public class PaymentController {
 				orderItem.setUnitPrice(paymentCustomerForm.getItems().get(i).getPrice());
 				System.out.println(orderItemId);
 				
+				
 			}
 			
 			newOrder.setOrderNumber("BlackSheep" + newOrder.getId());

@@ -20,6 +20,7 @@ public class Product {
 	private String categoryGender;
 	private String imageSrc;
 	
+	
 	public Product() {}	
 
 	public Product(String name, int unitPrice, int stockQuantity, String category, String categoryGender) {

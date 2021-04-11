@@ -3,49 +3,70 @@
 
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>BlackSheep</title>
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>BlackSheep Login</title>
+
+	<!-- fragemnt for attached css files and scripts -->
+	<script th:replace="fragments/header :: header"></script>
+	
+
 </head>
 
 <body>
-	<h1>Welcome to BlackSheep Login Page</h1>
-	<form action="" method="post">
-		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/> 
-		<fieldset>
-			<legend>Please Login</legend>
-			<div th:if="${param.error != null}">
-				Failed to login.
-				<div th:if="${SPRING_SECURITY_LAST_EXCEPTION != null}">
-					Reason:
-					<span th:text="${SPRING_SECURITY_LAST_EXCEPTION.message}"></span>
-				</div>
+
+	<!-- fragemnt for Navigation Bar -->
+	<div th:replace="fragments/navigation-bar :: navigation-bar"></div>
+	
+	<!-- Page Content -->
+	<div class="container">
+		<div class="row" style="padding-top:20px; padding-bottom:70px;">
+			<div class="col-lg-9">
+				<h1 class="my-4 text-left">Login Page</h1>
 			</div>
-			<!-- the configured LogoutConfigurer#logoutSuccessUrl is /login?logout and contains the query param logout -->
-			<div th:if="${param.logout != null}">
-				You have been logged out.
+			<div class="col-lg-9">
+				<form action="" method="post">
+					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+					<fieldset>
+						<div th:if="${param.error != null}">
+							Failed to login.
+							<div th:if="${SPRING_SECURITY_LAST_EXCEPTION != null}">
+								Reason:
+								<span th:text="${SPRING_SECURITY_LAST_EXCEPTION.message}"></span>
+							</div>
+						</div>
+						<!-- the configured LogoutConfigurer#logoutSuccessUrl is /login?logout and contains the query param logout -->
+						<div th:if="${param.logout != null}">
+							You have been logged out.
+						</div>
+						<div class="col-lg-9">
+							<div class="form-group">
+								<label for="username ">Email address</label>
+								<input type="email" class="form-control" id="username" aria-describedby="emailHelp"
+									placeholder="Enter email" name="username" />
+								<small id="emailHelp" class="form-text text-muted">We'll never share your email with
+									anyone
+									else.</small>
+							</div>
+						</div>
+						<div class="col-lg-9">
+							<div class="form-group">
+								<label for="password">Password</label>
+								<input type="password" class="form-control" id="password" placeholder="Password"
+									required name="password" />
+							</div>
+						</div>
+						<button type="submit" class="btn btn-primary">Submit</button> <br> <br>
+						<a href="/register"> <u> Not Register Yet? <u> </a>
+					</fieldset>
+				</form>
 			</div>
-			<p>
-				<label for="username">Email Address</label>
-				<input type="text" id="username" name="username" />
-			</p>
-			<p>
-				<label for="password">Password</label>
-				<input type="password" id="password" name="password" />
-			</p>
-			<!-- if using RememberMeConfigurer make sure remember-me matches RememberMeConfigurer#rememberMeParameter -->
-			<p>
-				<label for="remember-me">Remember Me?</label>
-				<input type="checkbox" id="remember-me" name="remember-me" />
-			</p>
-			<div>
-				<button type="submit" class="btn">Log in</button>
-			</div>
-			<div>
-			<a href="/register" id="create-account"> I don't have an account </a>
-			</div>
-		</fieldset>
-	</form>
+		</div>
+	</div><br><br>
+	<!-- /.container -->
+	
+	<!-- fragemnt for footer -->
+	<span th:replace="fragments/footer :: footer"></span>
 
 </body>
 

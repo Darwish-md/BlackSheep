@@ -9,6 +9,11 @@
     font-style: normal;
 }
 
+/* **************************************** */
+/*          Styling for whole body          */
+/* **************************************** */
+
+
 * {
     box-sizing: border-box;
     font-family: Raleway;
@@ -20,6 +25,18 @@ html, body {
     padding: 0;
     min-height: 100%;
 }
+
+body{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: rgb(255, 255, 255);
+    }
+
+/* **************************************** */
+/*          Styling for nav-bar             */
+/* **************************************** */
 
 .nav ul {
     margin: 0;
@@ -48,8 +65,16 @@ html, body {
 }
 
 .nav a:hover {
-    background-color: rgba(255, 255, 255, .3)
+    background-color: rgba(255, 255, 255, .3);
 }
+
+#cartBtnClick:hover{
+    cursor: pointer;
+}
+
+/* **************************************** */
+/*        Styling for brand logo            */
+/* **************************************** */
 
 .main-header {
     background-color: rgba(0, 0, 0, .6);
@@ -71,6 +96,10 @@ html, body {
 .band-name-large {
     font-size: 8em;
 }
+
+/* **************************************** */
+/*        Styling for container             */
+/* **************************************** */
 
 .content-section {
     margin: 1em;
@@ -97,6 +126,10 @@ html, body {
     border-radius: 50%;
 }
 
+/* **************************************** */
+/*          Styling for footer              */
+/* **************************************** */
+
 .main-footer {
     background-color: #56CCF2;
     color: white;
@@ -121,6 +154,19 @@ html, body {
     width: 30px;
     height: 30px;
 }
+
+footer{
+    position: relative;
+    left: 0;
+    bottom: 0;
+    height: 100px;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* **************************************** */
+/*          Styling for buttons             */
+/* **************************************** */
 
 .btn {
     text-align: center;
@@ -169,6 +215,10 @@ html, body {
     background-color: #2D9CDB;
 }
 
+/* **************************************** */
+/*        Extra Styling for pages           */
+/* **************************************** */
+
 .tour-row {
     border-bottom: 1px solid black;
     padding-bottom: 1em;
@@ -200,182 +250,4 @@ html, body {
 
 .tour-btn {
     max-width: 19%;
-}
-
-.shop-item {
-    margin: 30px;
-}
-
-.shop-item-title {
-    display: block;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    font-size: 1.5em;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-.shop-item-image {
-    height: 250px;
-}
-
-.shop-item-details {
-    display: flex;
-    align-items: center;
-    padding: 5px;
-}
-
-.shop-item-price {
-    flex-grow: 1;
-    color: #333;
-}
-
-.shop-items {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}
-
-.cart-header {
-    font-weight: bold;
-    font-size: 1.25em;
-    color: #333;
-}
-
-.cart-column {
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid black;
-    margin-right: 1.5em;
-    padding-bottom: 10px;
-    margin-top: 10px;
-}
-
-.cart-row {
-    display: flex;
-}
-
-.cart-item {
-    width: 45%;
-}
-
-.cart-price {
-    width: 20%;
-    font-size: 1.2em;
-    color: #333;
-}
-
-.cart-quantity {
-    width: 35%;
-}
-
-.cart-item-title {
-    color: #333;
-    margin-left: .5em;
-    font-size: 1.2em;
-}
-
-.cart-item-image {
-    width: 75px;
-    height: auto;
-    border-radius: 10px;
-}
-
-.btn-danger {
-    color: white;
-    background-color: #EB5757;
-    border: none;
-    border-radius: .3em;
-    font-weight: bold;
-}
-
-.btn-danger:hover {
-    background-color: #CC4C4C;
-}
-
-.cart-quantity-input {
-    height: 34px;
-    width: 50px;
-    border-radius: 5px;
-    border: 1px solid #56CCF2;
-    background-color: #eee;
-    color: #333;
-    padding: 0;
-    text-align: center;
-    font-size: 1.2em;
-    margin-right: 25px;
-}
-
-.cart-row:last-child {
-    border-bottom: 1px solid black;
-}
-
-.cart-row:last-child .cart-column {
-    border: none;
-}
-
-.cart-total {
-    text-align: end;
-    margin-top: 10px;
-    margin-right: 10px;
-}
-
-.cart-total-title {
-    font-weight: bold;
-    font-size: 1.5em;
-    color: black;
-    margin-right: 20px;
-}
-
-.cart-total-price {
-    color: #333;
-    font-size: 1.1em;
-}
-
-.btn-purchase {
-    display: block;
-    margin: 40px auto 80px auto;
-    font-size: 1.75em;
-}
-
-.cart{
-    display: none;
-	width:100%;
-    background-color: grey;
-    height: 100%;
-	position: absolute;
-	top:0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	margin: auto;
-    transition: all .5s;
-}
-
-body{
-background-image: url(/images/back.jpg);
-
-/* Background image is centered vertically and horizontally at all times */
-background-position: center center;
-
-/* Background image doesn’t tile */
-background-repeat: no-repeat;
-
-/* Background image is fixed in the viewport so that it doesn’t move when
-the content’s height is greater than the image’s height */
-background-attachment: fixed;
-
-/* This is what makes the background image rescale based
-on the container’s size */
-background-size: cover;
-
-/* Set a background color that will be displayed
-while the background image is loading */
-background-color: rgb(255, 255, 255);
-}
-
-.shop-item{
-    border-radius: 20px;
-    opacity: 50;
 }

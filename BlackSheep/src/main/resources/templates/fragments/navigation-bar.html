@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+</head>
+
+<body>
+	<div th:fragment="navigation-bar" th:remove="tag">
+		<!-- Navigation -->
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+		<div class="container">
+			<img class="navbar-brand" th:src="@{/images/logo1.png}" alt="BlackSheep logo">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+				aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarResponsive">
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item active">
+
+						<a class="nav-link" href="/">Home
+							<span class="sr-only">(current)</span>
+						</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/login">Login</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/register">Register</a>
+
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/contact_us">Contact Us</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/cart" id="cartBtnClick">Cart</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</nav><br><br>
+	</div>
+</body>
+
+</html>

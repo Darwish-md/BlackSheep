@@ -12,13 +12,12 @@
 	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
 	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
 	<!-- style css -->
-	<link type="text/css" rel="stylesheet" th:href="@{/css/Style.css}" />
+	<link type="text/css" rel="stylesheet" th:href="@{/css/checkout-form-style.css}" />
 	<script th:src="@{/scripts/payment_customers.js}" async></script>
 
 </head>
 
 <body>
-
 	<h2>Checkout Form</h2>
 	<div class="row">
 		<div class="col-75">
@@ -30,21 +29,25 @@
 						<div class="col-50">
 							<h3>Shipping Address</h3>
 							<label for="adr"><i class="fa fa-address-card-o icon-relative"></i> Street Address</label>
-							<input type="text" th:field="${customer.streetAddress}" id="adr" name="address" placeholder="110 Debrecen utca" required>
+							<input type="text" th:field="${customer.streetAddress}" id="adr" name="address"
+								placeholder="110 Debrecen utca" required>
 
 
 							<label for="city"><i class="fa fa-institution icon-relative"></i> City</label>
-							<input type="text" th:field="${customer.city}"  id="city" name="city" placeholder="Debrecen" required>
+							<input type="text" th:field="${customer.city}" id="city" name="city" placeholder="Debrecen"
+								required>
 
 							<div class="row icon-relative">
 								<div class="col-50">
 									<label for="state">State</label>
-									<input type="text" th:field="${customer.state}" id="state" name="state" placeholder="Hajdu-Bihar" required>
+									<input type="text" th:field="${customer.state}" id="state" name="state"
+										placeholder="Hajdu-Bihar" required>
 
 								</div>
 								<div class="col-50 icon-relative">
 									<label for="postalcode">Postal Code</label>
-									<input type="text" th:field="${customer.postalCode}" id="postalcode" name="postalcode" placeholder="4280" required>
+									<input type="text" th:field="${customer.postalCode}" id="postalcode"
+										name="postalcode" placeholder="4280" required>
 								</div>
 							</div>
 						</div>
@@ -86,6 +89,7 @@
 		</div>
 	</div>
 	<!-- script validate js -->
+
 </body>
 
 </html>
