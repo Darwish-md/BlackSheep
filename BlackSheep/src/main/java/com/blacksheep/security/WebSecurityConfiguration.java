@@ -44,15 +44,16 @@ private UserDetailsService userDetailsService;
 			.authorizeRequests()
 				.antMatchers("/").permitAll()
 				.antMatchers("/register").permitAll()
+				.antMatchers("/products/**").permitAll()
+				.antMatchers("/cart").permitAll()
+				.antMatchers("/guests_checkout").permitAll()
 				.anyRequest().hasRole("CUSTOMER").and()
 			.formLogin()
-				.loginPage("/login")
-				.permitAll()
-				.defaultSuccessUrl("/dashboard").and()
+				.loginPage("/login").permitAll()
+				.defaultSuccessUrl("/").and()
 			.logout()
 				.logoutUrl("/logout")
-				.permitAll();
-		
+				.permitAll();		
 	}
 
 }

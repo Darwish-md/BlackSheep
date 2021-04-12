@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 
 @Entity
 @Table(name = "orders")
@@ -37,6 +39,7 @@ public class Order {
 		this.id = id;
 	}
 	
+	@NotNull
 	public String getOrderNumber() {
 		return orderNumber;
 	}
@@ -45,6 +48,7 @@ public class Order {
 		this.orderNumber = orderNumber;
 	}
 
+	@NotNull
 	public Date getOrderDate() {
 		return orderDate;
 	}
@@ -53,6 +57,7 @@ public class Order {
 		this.orderDate = orderDate;
 	}
 
+	@NotNull
 	public Float getTotalCost() {
 		return totalCost;
 	}
@@ -61,6 +66,7 @@ public class Order {
 		this.totalCost = totalCost;
 	}
 
+	@NotNull
 	public String getStreetAddress() {
 		return streetAddress;
 	}
@@ -69,6 +75,7 @@ public class Order {
 		this.streetAddress = streetAddress;
 	}
 
+	@NotNull
 	public String getCity() {
 		return city;
 	}
@@ -77,6 +84,7 @@ public class Order {
 		this.city = city;
 	}
 
+	@NotNull
 	public String getState() {
 		return state;
 	}
@@ -85,6 +93,7 @@ public class Order {
 		this.state = state;
 	}
 
+	@NotNull
 	public String getPostalCode() {
 		return postalCode;
 	}

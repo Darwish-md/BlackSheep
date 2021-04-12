@@ -6,6 +6,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 
 @Entity
 @Table(name = "product")
@@ -15,10 +17,10 @@ public class Product {
 	private String name;
 	private int unitPrice;
 	private int stockQuantity;
+	private String imageSrc;
 	/*@Enumerated(EnumType.STRING)*/
 	private String category;
 	private String categoryGender;
-	private String imageSrc;
 	
 	
 	public Product() {}	
@@ -39,37 +41,48 @@ public class Product {
 	public void setId(long id) {
 		this.id = id;
 	}
+	
+	@NotNull
 	public String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	@NotNull
 	public int getUnitPrice() {
 		return unitPrice;
 	}
 	public void setUnitPrice(int unitPrice) {
 		this.unitPrice = unitPrice;
 	}
+	
+	@NotNull
 	public int getStockQuantity() {
 		return stockQuantity;
 	}
 	public void setStockQuantity(int stockQuantity) {
 		this.stockQuantity = stockQuantity;
 	}
+	
+	@NotNull
 	public String getCategory() {
 		return category;
 	}
 	public void setCategory(String category) {
 		this.category = category;
 	}
+	
+	@NotNull
 	public String getCategoryGender() {
 		return categoryGender;
 	}
 	public void setCategoryGender(String categoryGender) {
 		this.categoryGender = categoryGender;
 	}
-
+	
+	@NotNull
 	public String getImageSrc() {
 		return imageSrc;
 	}

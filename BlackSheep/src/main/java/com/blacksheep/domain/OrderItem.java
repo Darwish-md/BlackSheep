@@ -4,6 +4,8 @@ import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+import com.sun.istack.NotNull;
+
 @Entity
 @Table(name = "order_item")
 public class OrderItem {
@@ -19,12 +21,16 @@ public class OrderItem {
 	public void setPk(OrderItemId pk) {
 		this.pk = pk;
 	}
+	
+	@NotNull
 	public Float getUnitPrice() {
 		return unitPrice;
 	}
 	public void setUnitPrice(Float unitPrice) {
 		this.unitPrice = unitPrice;
 	}
+	
+	@NotNull
 	public int getQuantity() {
 		return quantity;
 	}

@@ -16,23 +16,32 @@
 
 	<!-- fragemnt for Navigation Bar -->
 	<span th:replace="fragments/navigation-bar :: navigation-bar"></span>
-	
+
 	<!-- Body Content -->
 	<section class="container content-section">
-		<br><br><br>
-		<h2 class="section-header">ITEMS</h2>
-		<div class="shop-items">
-			<div class="shop-item" th:each="product : ${products}">
-				<span class="shop-item-title" th:text="${product.name}"></span>
-				<img class="shop-item-image" th:src="${product.imageSrc}">
-				<div class="shop-item-details">
-					<span class="shop-item-price">$<span th:text="${product.unitPrice}"></span></span>
-					<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
-				</div>
-				<span hidden class="shop-item-id" th:text="${product.id}"></span>
-			</div>
-		</div>
-	</section>
+        <br><br><br>
+        <h2 class="section-header">PRODUCTS</h2>
+        <div class="row">
+            <h6 class="col-lg-12">Search by Category: </h6>
+            <div class="btn-group col-lg-12" role="group" aria-label="Basic example">
+                <a href="/products/WATCHES" class="btn btn-primary">Watches</a>
+                <a href="/products/SHIRTS" class="btn btn-primary">Shirts</a>
+                <a href="/products/JEANS" class="btn btn-primary">Jeans</a>
+                <a href="/products/SHOES" class="btn btn-primary">Shoes</a>
+            </div>
+        </div>
+        <div class="shop-items">
+            <div class="shop-item" th:each="product : ${products}">
+                <span class="shop-item-title" th:text="${product.name}"></span>
+                <img class="shop-item-image" th:src="${product.imageSrc}">
+                <div class="shop-item-details">
+                    <span class="shop-item-price">$<span th:text="${product.unitPrice}"></span></span>
+                    <button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+                </div>
+                <span hidden class="shop-item-id" th:text="${product.id}"></span>
+            </div>
+        </div>
+    </section>
 
 	<!-- fragemnt for footer -->
 	<span th:replace="fragments/footer :: footer"></span>

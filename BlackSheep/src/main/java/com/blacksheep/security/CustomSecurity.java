@@ -13,16 +13,17 @@ public class CustomSecurity extends Customer implements UserDetails{
 	
 	public CustomSecurity() {}
 
-	public CustomSecurity(Customer customer) {
-		this.setCity(customer.getCity());
-		this.setEmail(customer.getEmail());
-		this.setFirstName(customer.getFirstName());
+	public CustomSecurity(Customer customer) {		
 		this.setId(customer.getId());
+		this.setFirstName(customer.getFirstName());
 		this.setLastName(customer.getLastName());
+		this.setEmail(customer.getEmail());
 		this.setPassword(customer.getPassword());
 		this.setPhone(customer.getPhone());
-		this.setPostalCode(customer.getPostalCode());
 		this.setStreetAddress(customer.getStreetAddress());
+		this.setCity(customer.getCity());
+		this.setState(customer.getState());
+		this.setPostalCode(customer.getPostalCode());
 		this.setAuthorities(customer.getAuthorities());
 		this.setOrders(customer.getOrders());
 	}

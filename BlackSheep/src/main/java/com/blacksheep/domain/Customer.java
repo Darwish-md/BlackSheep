@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.blacksheep.security.Authority;
+import com.sun.istack.NotNull;
 
 @Entity
 @Table(name = "customer")
@@ -62,7 +63,8 @@ public class Customer {
 	public void setId(long id) {
 		this.id = id;
 	}
-
+	
+	@NotNull
 	public String getFirstName() {
 		return firstName;
 	}
@@ -71,6 +73,7 @@ public class Customer {
 		this.firstName = firstName;
 	}
 
+	@NotNull
 	public String getLastName() {
 		return lastName;
 	}
@@ -79,6 +82,7 @@ public class Customer {
 		this.lastName = lastName;
 	}
 
+	@NotNull
 	public String getEmail() {
 		return email;
 	}
@@ -87,6 +91,7 @@ public class Customer {
 		this.email = email;
 	}
 
+	@NotNull
 	public String getPassword() {
 		return password;
 	}
@@ -95,6 +100,7 @@ public class Customer {
 		this.password = password;
 	}
 
+	@NotNull
 	public String getPhone() {
 		return phone;
 	}
@@ -103,6 +109,7 @@ public class Customer {
 		this.phone = phone;
 	}
 
+	@NotNull
 	public String getStreetAddress() {
 		return streetAddress;
 	}
@@ -111,6 +118,7 @@ public class Customer {
 		this.streetAddress = streetAddress;
 	}
 
+	@NotNull
 	public String getCity() {
 		return city;
 	}
@@ -119,6 +127,7 @@ public class Customer {
 		this.city = city;
 	}
 
+	@NotNull
 	public String getState() {
 		return state;
 	}
@@ -127,6 +136,7 @@ public class Customer {
 		this.state = state;
 	}
 
+	@NotNull
 	public String getPostalCode() {
 		return postalCode;
 	}

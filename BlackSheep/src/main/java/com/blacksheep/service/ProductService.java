@@ -27,5 +27,11 @@ public class ProductService {
 	public Optional<Product> getProduct(Long id){
 		return productRepo.findById(id);
 	}
+
+
+	public List<Product> getAllProducts() {
+		return productRepo.findAll();
+	}
+
 	
 }

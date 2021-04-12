@@ -28,13 +28,7 @@ function ready() {
       }
 $('#payment-form').validate({
                     roles: {
-                       fullname: {
-                            required: true,
-                        },
-                        email: {
-                            required: true,
-                        },
-                        address: {
+                       address: {
                             required: true,
                         },
                         city: {
@@ -64,8 +58,6 @@ $('#payment-form').validate({
 
                     },
                     messages: {
-                        fullname: "Please input full name*",
-                        email: "Please input email*",
                         city: "Please input city*",
                         address: "Please input address*",
                         state: "Please input state*",

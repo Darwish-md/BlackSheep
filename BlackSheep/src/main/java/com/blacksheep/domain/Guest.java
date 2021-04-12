@@ -10,6 +10,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import com.sun.istack.NotNull;
+
 @Entity
 public class Guest {
 	private Long id;
@@ -38,6 +40,7 @@ public class Guest {
 		this.id = id;
 	}
 
+	@NotNull
 	public String getFullName() {
 		return fullName;
 	}
@@ -46,6 +49,7 @@ public class Guest {
 		this.fullName = fullName;
 	}
 
+	@NotNull
 	public String getEmail() {
 		return email;
 	}

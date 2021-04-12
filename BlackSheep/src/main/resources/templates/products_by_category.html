@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>BlackSheep Products</title>
+
+	<!-- fragemnt for attached css files and scripts -->
+	<script th:replace="fragments/header :: header"></script>
+
+</head>
+
+<body>
+
+	<!-- fragemnt for Navigation Bar -->
+	<span th:replace="fragments/navigation-bar :: navigation-bar"></span>
+
+	<!-- Body Content -->
+	<section class="container content-section">
+	<br><br><br>
+		<h2 class="section-header" th:text="${productCategory}">ITEMS</h2>
+		<div class="row">
+			<div class="col-3">
+				<br><br>
+				<form>
+					<label for="productCategoryGender">Gender:</label>
+					<select id="Gender" feild="*{productCategoryGender}" name="productCategoryGender" class="col">
+						<option disabled selected value> -- select an option -- </option>
+						<option value="MEN">MEN</option>
+						<option value="WOMEN">WOMEN</option>
+						<option value="KID">KID</option>
+						<option value="UNISEX">UNISEX</option>
+					</select><br><br>
+					<input type="checkbox" name="inStock" field="*{inStock}">
+					<label for="inStock">In Stock</label>
+					<br>
+					<label for="min">Min Price: $</label>
+					<input type="number" class="col" id="min-price" feild="*{min}" name="min" /><br><br>
+					<label for="max">Max Price: $</label>
+					<input type="number" class="col" id="max-price" feild="*{max}" name="max" /><br><br>
+					<input type="submit" class="btn btn-outline-info btn-sm btn-block" value="Filter Products">
+				</form>
+				<br>
+			</div>
+			<div class="col-9">
+				<div class="shop-items">
+					<div class="shop-item" th:each="product : ${products}">
+						<span class="shop-item-title" th:text="${product.name}"></span>
+						<img class="shop-item-image" th:src="${product.imageSrc}">
+						<div class="shop-item-details">
+							<span class="shop-item-price">$<span th:text="${product.unitPrice}"></span></span>
+							<button class="btn btn-primary shop-item-button" type="button">ADD TO CART</button>
+						</div>
+						<span hidden class="shop-item-id" th:text="${product.id}"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- fragemnt for footer -->
+	<span th:replace="fragments/footer :: footer"></span>
+
+</body>
+
+</html>

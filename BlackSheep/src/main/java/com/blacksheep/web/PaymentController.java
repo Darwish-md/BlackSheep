@@ -1,8 +1,6 @@
 package com.blacksheep.web;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Formatter;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import com.blacksheep.POJOS.Item;
 import com.blacksheep.POJOS.PaymentCustomerForm;
 import com.blacksheep.POJOS.PaymentGuestForm;
 import com.blacksheep.domain.Customer;
@@ -43,8 +40,7 @@ public class PaymentController {
 	}
 	
 	@GetMapping("/guests_checkout")
-	public String guestsCheckoutForm() {
-		
+	public String guestsCheckoutForm() {		
 		return "payment_guests";
 	}
   

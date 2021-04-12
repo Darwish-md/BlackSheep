@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>BlackSheep Products</title>
+	<title>BlackSheep Register</title>
 
 	<!-- fragemnt for attached css files and scripts -->
 	<script th:replace="fragments/header :: header"></script>
@@ -69,7 +69,7 @@
 							<div class="form-group">
 								<label for="exampleInputPhoneNumber1">Phone Number</label>
 								<input type="number" class="form-control" id="exampleInputPhoneNumber1"
-									placeholder="e.g: +36308804067" th:field="${customer.phone}" />
+									placeholder="e.g: 0036308804067" th:field="${customer.phone}" />
 							</div>
 						</div>
 
@@ -102,13 +102,13 @@
 							<div class="form-group">
 								<label for="exampleInputPostalCodeName1">Postal Code</label>
 								<input type="number" class="form-control" id="exampleInputPostalCodeName11"
-									placeholder="e.g: 4397" th:field="${customer.postalCode}" />
+									placeholder="e.g: 4028" th:field="${customer.postalCode}" />
 							</div>
 						</div>
 
 					</div>
 
-					<button type="submit" class="btn btn-primary">Submit</button> <br> <br>
+					<button type="submit" class="btn btn-primary">Register</button> <br> <br>
 					<a href="/login"><u> Already Registered </u> </a>
 				</form>
 			</div>

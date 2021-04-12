@@ -20,6 +20,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 	@Query(value = "select max(unit_price) from product", nativeQuery = true)
 	public Integer findMaxPrice();
 	
-	public Optional<Product> findById(Long id); 
+	public Optional<Product> findById(Long id);
+
+	List<Product> findByCategory(String productCategory); 
 
 }
