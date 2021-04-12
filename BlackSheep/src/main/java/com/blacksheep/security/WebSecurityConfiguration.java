@@ -50,7 +50,7 @@ private UserDetailsService userDetailsService;
 				.anyRequest().hasRole("CUSTOMER").and()
 			.formLogin()
 				.loginPage("/login").permitAll()
-				.defaultSuccessUrl("/").and()
+				.defaultSuccessUrl("/", true).and()
 			.logout()
 				.logoutUrl("/logout")
 				.permitAll();		

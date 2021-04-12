@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
 
@@ -12,6 +13,8 @@
 
 	<!-- fragemnt for attached css files and scripts -->
 	<script th:replace="fragments/header :: header"></script>
+	<!-- Script Files-->
+	<script th:src="@{/scripts/cart.js}" async></script>
 </head>
 
 <body>
@@ -20,7 +23,7 @@
 
 	<!-- Page Content -->
 	<div class="container">
-	<br><br><br><br><br>
+		<br><br><br><br><br>
 		<section class="container content-section cart">
 			<h2 class="section-header">CART</h2>
 			<div class="cart-row">
@@ -34,13 +37,20 @@
 				<strong class="cart-total-title">Total</strong>
 				<span class="cart-total-price">$0</span>
 			</div>
-			<button class="btn btn-primary btn-purchase" type="button">PURCHASE</button>
-			<button class="btn btn-primary close">x</button>
+
+			<form action="/guests_checkout" method="GET" sec:authorize="!isAuthenticated()">
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+				<button type="submit" class="btn btn-primary btn-purchase" >Proceed To Payment</button>
+			</form>
+			<form action="/customers_checkout" method="GET" sec:authorize="isAuthenticated()">
+				<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+				<button type="submit" class="btn btn-primary btn-purchase" >Proceed To Payment</button>
+			</form>
 		</section>
 	</div>
 	<!-- /.container -->
-	
-		
+
+
 	<!-- fragemnt for footer -->
 	<span th:replace="fragments/footer :: footer"></span>
 
