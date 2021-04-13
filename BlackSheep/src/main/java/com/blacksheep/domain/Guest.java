@@ -14,15 +14,16 @@ import com.sun.istack.NotNull;
 
 @Entity
 public class Guest {
-	private Long id;
+	private long id;
 	private String fullName;
 	private String email;
     private Set<Order> orders;
     
 	public Guest() {}
     
-	public Guest(Long id, String fullName, String email, String streetAddress, String city, String state,
-			String postalCode, Set<Order> orders) {
+	
+
+	public Guest(long id, String fullName, String email, Set<Order> orders) {
 		super();
 		this.id = id;
 		this.fullName = fullName;
@@ -30,13 +31,15 @@ public class Guest {
 		this.orders = orders;
 	}
 
+
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 

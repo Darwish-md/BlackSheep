@@ -16,7 +16,7 @@
 	<!-- style css -->
 	<link type="text/css" rel="stylesheet" th:href="@{/css/checkout-form-style.css}" />
 	<script th:src="@{/scripts/payment_customers.js}" async></script>
-    <script th:src="@{/scripts/checkout.js}" async></script>
+    <!--<script th:src="@{/scripts/checkout.js}" async></script> -->
 </head>
 
 <body>
@@ -33,7 +33,6 @@
 							<label for="adr"><i class="fa fa-address-card-o icon-relative"></i>  Street Address</label>
 							<input type="text" th:field="${customer.streetAddress}" id="adr" name="address"
 								placeholder="e.g: Kassai Ut." required>
-
 
 							<label for="city"><i class="fa fa-institution icon-relative"></i> City</label>
 							<input type="text" th:field="${customer.city}" id="city" name="city"

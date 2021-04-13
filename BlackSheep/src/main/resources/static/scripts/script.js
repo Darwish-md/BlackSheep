@@ -26,7 +26,7 @@ function addToLocalStorage(event) {
 	var shopItem = button.parentElement.parentElement
 	if (typeof (Storage) !== 'undefined') {
 		let item = {
-			id: shopItem.getElementsByClassName('shop-item-id')[0].innerText,
+			id: parseInt(shopItem.getElementsByClassName('shop-item-id')[0].innerText),
 			name: shopItem.getElementsByClassName('shop-item-title')[0].innerText,
 			price: parseFloat(shopItem.getElementsByClassName('shop-item-price')[0].innerText.replace('$', '')),
 			imageSrc: shopItem.getElementsByClassName('shop-item-image')[0].src,

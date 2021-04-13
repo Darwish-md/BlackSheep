@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Item {
-	private long id;
+	private int id;
 	private String name;
 	private Float price;
 	private String imageSrc;
@@ -13,7 +13,7 @@ public class Item {
 	public Item() {
 	}
 	
-	public Item(long id, String name, Float price, String imageSrc, int no) {
+	public Item(int id, String name, Float price, String imageSrc, int no) {
 		this.id = id;
 		this.name = name;
 		this.price = price;
@@ -21,10 +21,10 @@ public class Item {
 		this.no = no;
 	}
 	
-	public long getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {

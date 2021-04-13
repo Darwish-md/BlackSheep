@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>BlackSheep Register</title>
+	<title>BlackSheep Main Page</title>
 
 	<!-- fragemnt for attached css files and scripts -->
 	<script th:replace="fragments/header :: header"></script>
@@ -14,17 +15,13 @@
 
 <body>
 	<!-- fragemnt for Navigation Bar -->
-	<div th:replace="fragments/navigation-bar :: navigation-bar"></div>
+	<span th:replace="fragments/navigation-bar :: navigation-bar"></span>
 
 	<!-- Page Content -->
 	<div class="container">
 		<div class="row" style="padding-top:80px; padding-bottom:80px;">
 
-			<div class="col-lg-5">
-				<img src="images/gigi.jpg" class="img-fluid" alt="" style="opacity:0.9;">
-			</div>
-
-			<div class="col-lg-7">
+			<div class="col-lg-12">
 				<form action="" method="post">
 					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 					<div class="row">
@@ -32,7 +29,7 @@
 							<div class="form-group">
 								<label for="exampleInputFirstName1">First Name</label>
 								<input type="text" class="form-control" id="exampleInputFirstName1"
-									placeholder="e.g: John" th:field="${customer.firstName}" />
+									th:field="${customer.firstName}" />
 							</div>
 						</div>
 
@@ -40,7 +37,7 @@
 							<div class="form-group">
 								<label for="exampleInputLastName1">Last Name</label>
 								<input type="text" class="form-control" id="exampleInputLastName1"
-									placeholder="e.g: Smith" th:field="${customer.lastName}" />
+									th:field="${customer.lastName}" />
 							</div>
 						</div>
 
@@ -48,19 +45,16 @@
 							<div class="form-group">
 								<label for="exampleInputEmail1">Email address</label>
 								<input type="email" class="form-control" id="exampleInputEmail1"
-									aria-describedby="emailHelp" placeholder="e.g: blacksheep@gmail.com"
-									th:field="${customer.email}" />
-								<small id="emailHelp" class="form-text text-muted">We'll never share your email with
-									anyone else.
+									aria-describedby="emailHelp" th:field="${customer.email}" />
 								</small>
 							</div>
 						</div>
 
 						<div class="col-lg-12">
 							<div class="form-group">
-								<label for="exampleInputPassword1">Password</label>
+								<label for="exampleInputPassword1">New Password</label>
 								<input type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="Enter a super secure password" th:field="${customer.password}" />
+									placeholder="Change your password" th:field="${customer.password}" />
 							</div>
 						</div>
 
@@ -107,16 +101,22 @@
 
 					</div>
 
-					<button type="submit" class="btn btn-primary">Register</button> <br> <br>
-					<a href="/login"><u> Already Registered </u> </a>
+					<button type="submit" class="btn btn-success">Save Changes</button> <br> <br>
+					
 				</form>
+				
+				<form action="/" method="get">
+						<button type="submit" class="btn btn-danger">Discard Changes</button> <br> <br>
+					</form>
+
+
 			</div>
 		</div>
 	</div>
-	
+
+
 	<!-- fragemnt for footer -->
 	<span th:replace="fragments/footer :: footer"></span>
-
 </body>
 
 </html>

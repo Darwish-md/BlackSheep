@@ -18,7 +18,6 @@ public class Product {
 	private int unitPrice;
 	private int stockQuantity;
 	private String imageSrc;
-	/*@Enumerated(EnumType.STRING)*/
 	private String category;
 	private String categoryGender;
 	

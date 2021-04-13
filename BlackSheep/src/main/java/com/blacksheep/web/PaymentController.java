@@ -20,6 +20,8 @@ import com.blacksheep.domain.OrderItem;
 import com.blacksheep.domain.OrderItemId;
 import com.blacksheep.domain.Product;
 import com.blacksheep.exceptions.InternalServerErrorException;
+import com.blacksheep.repositories.OrderItemRepository;
+import com.blacksheep.repositories.OrderRepository;
 import com.blacksheep.repositories.ProductRepository;
 import com.blacksheep.service.PaymentService;
 
@@ -32,6 +34,12 @@ public class PaymentController {
 	
 	@Autowired
 	private ProductRepository productRepo;
+	
+	@Autowired
+	private OrderItemRepository orderItemRepo;
+	
+	@Autowired
+	private OrderRepository orderRepo;
 	
 	@GetMapping("/customers_checkout")
 	public String customersCheckoutForm(ModelMap model, @AuthenticationPrincipal Customer customer) {
@@ -49,32 +57,34 @@ public class PaymentController {
 	public String processcustomerPayment(@AuthenticationPrincipal Customer customer, @RequestBody PaymentCustomerForm paymentCustomerForm ) throws InternalServerErrorException{
 		try {
 			Order newOrder = new Order();
-			
+			orderRepo.save(newOrder);
+			Order orderToInsert = orderRepo.findById(newOrder.getId()).orElse(null);
 			for (int i=0; i< paymentCustomerForm.getItems().size(); i++) {
-				Optional<Product> product = productRepo.findById(paymentCustomerForm.getItems().get(i).getId());
+				Product product = productRepo.findById(Long.valueOf(paymentCustomerForm.getItems().get(i).getId())).orElse(null);
 				OrderItemId orderItemId = new OrderItemId();
 				OrderItem orderItem = new OrderItem();
-				orderItemId.setOrder(newOrder);
+				orderItemId.setOrder(orderToInsert);
 				orderItemId.setProduct(product);
 				orderItem.setPk(orderItemId);
 				orderItem.setQuantity(paymentCustomerForm.getItems().get(i).getNo());
 				orderItem.setUnitPrice(paymentCustomerForm.getItems().get(i).getPrice());
-				System.out.println(orderItemId);
-				
-				
+				orderItemRepo.save(orderItem);
+				System.out.println(orderItem);
 			}
 			
-			newOrder.setOrderNumber("BlackSheep" + newOrder.getId());
-			newOrder.setCustomer(customer);
-			newOrder.setTotalCost(paymentCustomerForm.getTotalPrice());
+			orderToInsert.setOrderNumber("BlackSheep" + orderToInsert.getId());
+			orderToInsert.setCustomer(customer);
+			orderToInsert.setTotalCost(paymentCustomerForm.getTotalPrice());
 //			To make it in readable format:
 //			SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z");
 //			formatter.format(date);
 			Date date = new Date(System.currentTimeMillis());
-			newOrder.setOrderDate(date);
-			
-			
-			System.out.println(newOrder);
+			orderToInsert.setOrderDate(date);
+			orderToInsert.setStreetAddress(paymentCustomerForm.getStreetAddress());
+			orderToInsert.setCity(paymentCustomerForm.getCity());
+			orderToInsert.setState(paymentCustomerForm.getState());
+			orderToInsert.setPostalCode(paymentCustomerForm.getPostalCode());
+			System.out.println(orderToInsert);
 			
 			return "redirect:/";
 			

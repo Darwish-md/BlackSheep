@@ -13,7 +13,12 @@ function ready() {
             method: 'POST',
             body: JSON.stringify({
                'items' : JSON.parse(localStorage.getItem("items")),
-               'totalPrice' : JSON.parse(localStorage.getItem("totalPrice"))     
+               'totalPrice' : JSON.parse(localStorage.getItem("totalPrice")),
+               'streetAddress': document.getElementById('adr').value,
+               'city':  document.getElementById('city').value,
+               'state':  document.getElementById('state').value,
+               'postalCode':  document.getElementById('postalcode').value,
+               
             }),
             headers: {
 	            'Accept': 'application/json',
