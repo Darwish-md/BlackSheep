@@ -8,7 +8,7 @@ public class ContactController {
 	
 	@GetMapping("/contact-form")
 	public String contactForm() {
-		return "contact-form";
+		return "contact_form";
 	}
 
 }
