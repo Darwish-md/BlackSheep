@@ -35,6 +35,7 @@ public class ProfileController {
 			id = auth.getDetails();
 			id=sth
 		    id=sth again
+		    id=sth
 			Optional<Customer> updateCustomer = customerService.getCustomerById(customer.getId());
 		    
 			return "redirect:/profile";
