@@ -2,9 +2,10 @@
 2- whenever posting in controllers, use redirect:/{html page name}
 3- dependencies have to match in versions
 4- lazy fetching didn't work, so we used eager. 
-5- everytime we open the IDE we should pull the gitHub repo first before editing the project so that we can push to gitHub. that's because we may have edited the code or added files online
-  GitHub does't accept push requests if the local repository is outdated.
+5- everytime we want to push to gitHub repo, we need to synchronize the local repository with the remote one by pulling because GitHub does't accept push requests if the local repository is outdated.
 6- posting to itself in a form "" in the action means we are posting to the current URL ofr the page.
 7- whenever posting a form or data or talking to server we need to include the csrf tag.
 8-  when dealing with authorization (we want to check the current user so we can assign the roles or view specific content) we pass in the controller method @authenticationPrinciple.
 , however when dealing with viewing something to logged in user or disabling it from 'not' users, the thymeleaf handles this without passing sth from backend using isAuthenticated.
+9- when pulling and there are new branches, they don't show in the local even after hard reset so we use this code:
+git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done

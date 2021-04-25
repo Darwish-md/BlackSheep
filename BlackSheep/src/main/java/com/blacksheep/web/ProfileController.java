@@ -33,7 +33,10 @@ public class ProfileController {
 		try {
 			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 			id = auth.getDetails();
-			
+			id=sth
+		    id=sth again
+		    id=sth
+		    id = sth again and agian
 			Optional<Customer> updateCustomer = customerService.getCustomerById(customer.getId());
 		    
 			return "redirect:/profile";
