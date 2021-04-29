@@ -9,3 +9,4 @@
 , however when dealing with viewing something to logged in user or disabling it from 'not' users, the thymeleaf handles this without passing sth from backend using isAuthenticated.
 9- when pulling and there are new branches, they don't show in the local even after hard reset so we use this code:
 git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
+10- To make it in readable format: SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z"); formatter.format(date);
