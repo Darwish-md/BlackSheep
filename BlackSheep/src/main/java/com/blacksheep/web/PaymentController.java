@@ -49,7 +49,7 @@ public class PaymentController {
 			throws InternalServerErrorException {
 		try {
 			paymentService.recordNewGuestOrder(paymentguestForm);
-			return "redirect:/products";
+			return "redirect:/";
 		} catch (Exception e) {
 			throw e;
 		}
