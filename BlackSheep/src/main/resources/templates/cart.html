@@ -25,7 +25,7 @@
 	<div class="container">
 		<br><br><br><br><br>
 		<section class="container content-section cart">
-			<h2 class="section-header">CART</h2>
+			<h2 class="section-header">CART</h2> <br> <br>
 			<div class="cart-row">
 				<span class="cart-item cart-header cart-column">ITEM</span>
 				<span class="cart-price cart-header cart-column">PRICE</span>
@@ -42,7 +42,7 @@
 				<button type="submit" class="btn btn-primary btn-purchase" >Proceed To Payment</button>
 			</form>
 			<form action="/customers_checkout" method="GET" sec:authorize="isAuthenticated()">
-				<button type="submit" class="btn btn-primary btn-purchase" >Proceed To Payment</button>
+				<button type="submit" class="btn btn-purchase">Proceed To Payment</button>
 			</form>
 		</section>
 	</div>

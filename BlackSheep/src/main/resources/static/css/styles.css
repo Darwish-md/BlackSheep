@@ -1,13 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400,700');
 @import url("https://fonts.googleapis.com/css?family=Metal+Mania");
 
-@font-face {
-    font-family: "Booter - Zero Zero";
-    src: url("Fonts/Booter - Zero Zero.woff") format("woff"),
-         url("Fonts/Booter - Zero Zero.woff2") format("woff2");
-    font-weight: normal;
-    font-style: normal;
-}
 
 /* **************************************** */
 /*          Styling for whole body          */
@@ -16,7 +9,6 @@
 
 * {
     box-sizing: border-box;
-    font-family: Raleway;
     color: #777;
 }
 
@@ -88,7 +80,6 @@ body{
     text-align: center;
     margin: 0;
     font-size: 4em;
-    font-family: "Booter - Zero Zero";
     font-weight: normal;
     color: white;
 }
@@ -111,7 +102,6 @@ body{
     padding: 0 1.5em;
 }
 .section-header {
-    font-family: "Metal Mania";
     font-weight: normal;
     color: #333;
     text-align: center;
