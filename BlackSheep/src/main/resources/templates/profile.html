@@ -10,6 +10,7 @@
 
 	<!-- fragemnt for attached css files and scripts -->
 	<script th:replace="fragments/header :: header"></script>
+	<script th:src="@{/scripts/edit_profile.js}" async></script>
 
 </head>
 
@@ -22,29 +23,29 @@
 		<div class="row" style="padding-top:80px; padding-bottom:80px;">
 
 			<div class="col-lg-12">
-				<form action="" method="post">
-					<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+				<form class="edit-profile-form" method="POST" action="/edit_profile">
+					<input class="csrf_token" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 					<div class="row">
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="exampleInputFirstName1">First Name</label>
-								<input type="text" class="form-control" id="exampleInputFirstName1"
+								<label for="firstName">First Name</label>
+								<input type="text" class="form-control" id="firstName"
 									th:field="${customer.firstName}" />
 							</div>
 						</div>
 
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="exampleInputLastName1">Last Name</label>
-								<input type="text" class="form-control" id="exampleInputLastName1"
+								<label for="lastName">Last Name</label>
+								<input type="text" class="form-control" id="lastName"
 									th:field="${customer.lastName}" />
 							</div>
 						</div>
 
 						<div class="col-lg-12">
 							<div class="form-group">
-								<label for="exampleInputEmail1">Email address</label>
-								<input type="email" class="form-control" id="exampleInputEmail1"
+								<label for="email">Email address</label>
+								<input type="email" class="form-control" id="email"
 									aria-describedby="emailHelp" th:field="${customer.email}" />
 								</small>
 							</div>
@@ -52,32 +53,32 @@
 
 						<div class="col-lg-12">
 							<div class="form-group">
-								<label for="exampleInputPassword1">New Password</label>
-								<input type="password" class="form-control" id="exampleInputPassword1"
-									placeholder="Change your password" th:field="${customer.password}" />
+								<label for="password">New Password</label>
+								<input type="password" class="form-control" id="password"
+									placeholder="Enter your new password" th:field="${customer.password}" />
 							</div>
 						</div>
 
 						<div class="col-lg-12">
 							<div class="form-group">
-								<label for="exampleInputPhoneNumber1">Phone Number</label>
-								<input type="number" class="form-control" id="exampleInputPhoneNumber1"
+								<label for="phone">Phone Number</label>
+								<input type="number" class="form-control" id="phone"
 									placeholder="e.g: 0036308804067" th:field="${customer.phone}" />
 							</div>
 						</div>
 
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="exampleInputCityName1">City</label>
-								<input type="text" class="form-control" id="exampleInputCityName1"
+								<label for="city">City</label>
+								<input type="text" class="form-control" id="city"
 									placeholder="e.g: Debrecen" th:field="${customer.city}" />
 							</div>
 						</div>
 
 						<div class="col-lg-6">
 							<div class="form-group">
-								<label for="exampleInputCountryName1">State</label>
-								<input type="text" class="form-control" id="exampleInputCountryName1"
+								<label for="state">State</label>
+								<input type="text" class="form-control" id="state"
 									placeholder="e.g: Hajdú-Bihar" th:field="${customer.state}" />
 							</div>
 						</div>
@@ -85,16 +86,16 @@
 
 						<div class="col-lg-9">
 							<div class="form-group">
-								<label for="exampleInputAddressName1">Street Address</label>
-								<input type="text" class="form-control" id="exampleInputAddressName1"
+								<label for="streetAddress">Street Address</label>
+								<input type="text" class="form-control" id="streetAddress"
 									placeholder="e.g: Kassai Ut. " th:field="${customer.streetAddress}" />
 							</div>
 						</div>
 
 						<div class="col-lg-3">
 							<div class="form-group">
-								<label for="exampleInputPostalCodeName1">Postal Code</label>
-								<input type="number" class="form-control" id="exampleInputPostalCodeName11"
+								<label for="postalCode">Postal Code</label>
+								<input type="number" class="form-control" id="postalCode"
 									placeholder="e.g: 4028" th:field="${customer.postalCode}" />
 							</div>
 						</div>
