@@ -13,15 +13,13 @@ import com.blacksheep.repositories.CustomerRepository;
 @Service
 public class ProfileService {
 
-
-
 	@Autowired
 	private PasswordEncoder encoder;
-	
+
 	@Autowired
 	private CustomerRepository customerRepo;
 
-	public void editCustomerProfile(Customer customer,  Profile profile) {
+	public void editCustomerProfile(Customer customer, Profile profile) {
 		Customer myCustomer = customerRepo.findById(customer.getId()).orElse(null);
 		myCustomer.setFirstName(profile.getFirstName());
 		myCustomer.setLastName(profile.getLastName());

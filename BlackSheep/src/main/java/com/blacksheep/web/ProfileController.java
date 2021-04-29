@@ -30,17 +30,8 @@ public class ProfileController {
 	@PostMapping("/edit_profile")
 	public String editProfile(@AuthenticationPrincipal Customer customer, @RequestBody Profile profile) {
 		try {
-<<<<<<< Updated upstream
-			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-			id = auth.getDetails();
-			id=sth
-		    id=sth again
-			Optional<Customer> updateCustomer = customerService.getCustomerById(customer.getId());
-		    
-=======
 
 			profileService.editCustomerProfile(customer, profile);
->>>>>>> Stashed changes
 			return "redirect:/profile";
 
 		} catch (Exception e) {
