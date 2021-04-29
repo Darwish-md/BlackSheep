@@ -22,16 +22,10 @@ public class Guest {
 	public Guest() {}
     
 	
-
-	public Guest(long id, String fullName, String email, Set<Order> orders) {
-		super();
-		this.id = id;
+	public Guest(String fullName, String email) {
 		this.fullName = fullName;
 		this.email = email;
-		this.orders = orders;
 	}
-
-
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -46,6 +46,8 @@ private UserDetailsService userDetailsService;
 				.antMatchers("/register").permitAll()
 				.antMatchers("/products/**").permitAll()
 				.antMatchers("/cart").permitAll()
+				.antMatchers("/contact-form").permitAll()
+				.antMatchers("/payment_guests").permitAll()
 				.antMatchers("/guests_checkout").permitAll()
 				.anyRequest().hasRole("CUSTOMER").and()
 			.formLogin()
