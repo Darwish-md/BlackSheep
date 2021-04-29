@@ -32,6 +32,19 @@ public class Order {
 	private Guest guest;
 	
 	public Order() {}
+	
+	public void setNewOrder(String orderNumber, Date orderDate, Float totalCost, String streetAddress, String city, String state,
+			String postalCode) {
+		this.orderNumber = orderNumber;
+		this.orderDate = orderDate;
+		this.totalCost = totalCost;
+		this.streetAddress = streetAddress;
+		this.city = city;
+		this.state = state;
+		this.postalCode = postalCode;
+	}
+
+
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

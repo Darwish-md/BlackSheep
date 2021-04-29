@@ -14,6 +14,17 @@ public class OrderItem {
 	private Float unitPrice;
 	private int quantity;
 	
+	public OrderItem() {
+		super();
+	}
+
+	public OrderItem(OrderItemId pk, Float unitPrice, int quantity) {
+		super();
+		this.pk = pk;
+		this.unitPrice = unitPrice;
+		this.quantity = quantity;
+	}
+
 	@EmbeddedId
 	public OrderItemId getPk() {
 		return pk;

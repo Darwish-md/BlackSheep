@@ -16,7 +16,6 @@
 	<!-- style css -->
 	<link type="text/css" rel="stylesheet" th:href="@{/css/checkout-form-style.css}">
 	<script th:src="@{/scripts/payment_guests.js}" async></script>
-	<script th:src="@{/scripts/checkout.js}" async></script>
 
 </head>
 
@@ -26,7 +25,8 @@
 	<div class="row">
 		<div class="col-75">
 			<div class="container">
-				<form id="payment-form" method="POST" action="/payment_guests">
+				<form class="payment-form" method="POST" action="/payment_guests">
+				<input type="hidden" class="csrf_token" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
 					<div class="row icon-relative">
 						<div class="col-50">
 							<h3>Shipping Address</h3>
