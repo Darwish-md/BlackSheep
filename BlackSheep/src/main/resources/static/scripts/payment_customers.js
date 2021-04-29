@@ -5,8 +5,8 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
-	button = document.getElementsByClassName("payment-form")[0];
-     button.onsubmit = function (e) {
+	form = document.getElementsByClassName("payment-form")[0];
+     form.onsubmit = function (e) {
         e.preventDefault();
    
         fetch('/payment_customers', {
@@ -18,7 +18,6 @@ function ready() {
                'city':  document.getElementById('city').value,
                'state':  document.getElementById('state').value,
                'postalCode':  document.getElementById('postalcode').value,
-               
             }),
             headers: {
 	            'Accept': 'application/json',
