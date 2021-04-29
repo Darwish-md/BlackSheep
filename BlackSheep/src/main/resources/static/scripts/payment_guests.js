@@ -8,6 +8,33 @@ function ready() {
 	form = document.getElementsByClassName("payment-form")[0];
 	form.onsubmit = function(e) {
 		e.preventDefault();
+		fetch('/payment_guests', {
+			method: 'POST',
+			body: JSON.stringify({
+				'items': JSON.parse(localStorage.getItem("items")),
+				'totalPrice': JSON.parse(localStorage.getItem("totalPrice")),
+				'fullName': document.getElementById('fname').value,
+				'email': document.getElementById('email').value,
+				'streetAddress': document.getElementById('adr').value,
+				'city': document.getElementById('city').value,
+				'state': document.getElementById('state').value,
+				'postalCode': document.getElementById('postalcode').value
+			}),
+			headers: {
+				'Accept': 'application/json',
+				'Content-Type': 'application/json',
+				'X-CSRF-TOKEN': document.getElementsByClassName("csrf_token")[0].value
+			}
+		})
+			.then(function(res) {
+				console.log(res)
+				localStorage.setItem("items", null)
+				localStorage.setItem("totalPrice", 0)
+				window.location.replace("/");
+			})
+			.catch (function(err) {
+		console.log(err);
+	})
 }
 
 
