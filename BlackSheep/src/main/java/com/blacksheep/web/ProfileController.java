@@ -1,51 +1,41 @@
 package com.blacksheep.web;
 
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
+
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.context.SecurityContextHolder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.blacksheep.POJOS.Profile;
 import com.blacksheep.domain.Customer;
-import com.blacksheep.service.CustomerService;
+import com.blacksheep.service.ProfileService;
 
 @Controller
 public class ProfileController {
-	
-	@Autowired 
-	public CustomerService customerService;
-	
+
+	@Autowired
+	private ProfileService profileService;
+
 	@GetMapping("/profile")
 	public String profileView(ModelMap model, @AuthenticationPrincipal Customer customer) {
 		model.put("customer", customer);
-		return("profile");
+		return ("profile");
 	}
-	
-	
-	@PostMapping("/profile")
-	public String saveProfile(@ModelAttribute Customer customer) {
+
+	@PostMapping("/edit_profile")
+	public String editProfile(@AuthenticationPrincipal Customer customer, @RequestBody Profile profile) {
 		try {
-			Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-			id = auth.getDetails();
-			id=sth
-		    id=sth again
-		    id=sth
-		    id = sth again and agian
-			Optional<Customer> updateCustomer = customerService.getCustomerById(customer.getId());
-		    
+
+			profileService.editCustomerProfile(customer, profile);
 			return "redirect:/profile";
-			
-			}
-		catch (Exception e) {
-			//below assignment disables the improved rethrow exception type checking feature of Java 7
-			// e=new ThirdException();
+
+		} catch (Exception e) {
 			throw e;
-		}		
+		}
 	}
 }
