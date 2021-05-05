@@ -27,5 +27,5 @@
 #### Contact Us ####
 ![contact-us](https://user-images.githubusercontent.com/72353586/117101887-06d94280-ad2c-11eb-9789-987918a3253a.PNG)
 
-#### Checkout Page #### ### (To be updated) ###
+#### Checkout Page (To be updated) #### 
 ![checkout](https://user-images.githubusercontent.com/72353586/117101897-0fca1400-ad2c-11eb-8a45-2ec5da5b94f3.PNG)
