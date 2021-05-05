@@ -46,7 +46,7 @@ function showCartItems() {
       <div class="cart-quantity cart-column">
           <span class="cart-item-id" hidden>${itemToShow.id}</span>
           <input class="cart-quantity-input" type="number" value=${itemToShow.no}>
-          <button class="btn btn-danger" type="button" style="background-color:darkorange;">Remove</button>
+          <button class="btn btn-danger" type="button">Remove</button>
       </div>`
 			cartRow.innerHTML = cartRowContents
 			cartItems.append(cartRow)

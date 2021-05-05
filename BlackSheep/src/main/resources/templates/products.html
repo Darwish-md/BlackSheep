@@ -22,14 +22,13 @@
 	<!-- Body Content -->
 	<section class="container content-section">
         <br><br><br>
-        <h2 class="section-header">PRODUCTS</h2>
         <div class="row">
             <h6 class="col-lg-12">Search by Category: </h6>
             <div class="btn-group col-lg-12" role="group" aria-label="Basic example">
-                <a href="/products/WATCHES" class="btn " style="background-color:darkorange;">Watches</a>
-                <a href="/products/SHIRTS" class="btn" style="background-color:darkorange;">Shirts</a>
-                <a href="/products/JEANS" class="btn" style="background-color:darkorange;">Jeans</a>
-                <a href="/products/SHOES" class="btn"  style="background-color:darkorange;">Shoes</a>
+                <a href="/products/WATCHES" class="btn btn-info">Watches</a>
+                <a href="/products/SHIRTS" class="btn btn-info">Shirts</a>
+                <a href="/products/JEANS" class="btn btn-info">Jeans</a>
+                <a href="/products/SHOES" class="btn btn-info">Shoes</a>
             </div>
         </div>
         <div class="shop-items">
@@ -38,7 +37,7 @@
                 <img class="shop-item-image" th:src="${product.imageSrc}">
                 <div class="shop-item-details">
                     <span class="shop-item-price">$<span th:text="${product.unitPrice}"></span></span>
-                   <button class="btn shop-item-button" type="button" style="background-color:darkorange;">ADD TO CART</button>
+                   <button class="btn shop-item-button btn-info" type="button">ADD TO CART</button>
                 </div>
                 <span hidden class="shop-item-id" th:text="${product.id}"></span>
             </div>

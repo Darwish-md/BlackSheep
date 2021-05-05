@@ -23,6 +23,7 @@
 	<section class="container content-section">
 	<br><br><br>
 		<h2 class="section-header" th:text="${productCategory}">ITEMS</h2>
+		
 		<div class="row">
 			<div class="col-3">
 				<br><br>
@@ -42,7 +43,7 @@
 					<input type="number" class="col" id="min-price" feild="*{min}" name="min" /><br><br>
 					<label for="max">Max Price: $</label>
 					<input type="number" class="col" id="max-price" feild="*{max}" name="max" /><br><br>
-					<input type="submit" class="btn btn-outline-dark btn-sm btn-block" value="Filter Products">
+					<input type="submit" class="btn btn-outline-info btn-sm btn-block" value="Filter Products">
 				</form>
 				<br>
 			</div>
@@ -53,7 +54,7 @@
 						<img class="shop-item-image" th:src="${product.imageSrc}">
 						<div class="shop-item-details">
 							<span class="shop-item-price">$<span th:text="${product.unitPrice}"></span></span>
-							<button class="btn shop-item-button" type="button" style="background-color:darkorange;">ADD TO CART</button>
+							<button class="btn shop-item-button btn-info" type="button">ADD TO CART</button>
 						</div>
 						<span hidden class="shop-item-id" th:text="${product.id}"></span>
 					</div>
