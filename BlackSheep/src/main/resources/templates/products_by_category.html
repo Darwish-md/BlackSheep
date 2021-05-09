@@ -5,11 +5,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>BlackSheep Products</title>
+	<title>BlackSheep E-commerce | Products</title>
 
 	<!-- fragemnt for attached css files and scripts -->
 	<script th:replace="fragments/header :: header"></script>
-			<!-- Script Files-->
+	
+	
+	<!-- Script Files-->
 	<script th:src="@{/scripts/script.js}" async></script>
 
 </head>
@@ -21,9 +23,9 @@
 
 	<!-- Body Content -->
 	<section class="container content-section">
-	<br><br><br>
+		<br><br><br>
 		<h2 class="section-header" th:text="${productCategory}">ITEMS</h2>
-		
+
 		<div class="row">
 			<div class="col-3">
 				<br><br>
@@ -36,7 +38,7 @@
 						<option value="KID">KID</option>
 						<option value="UNISEX">UNISEX</option>
 					</select><br><br>
-					<input type="checkbox" name="inStock" field="*{inStock}">
+					<input type="checkbox" value="true" name="inStock" field="*{inStock}">
 					<label for="inStock">In Stock</label>
 					<br>
 					<label for="min">Min Price: $</label>

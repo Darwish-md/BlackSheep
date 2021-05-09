@@ -17,7 +17,6 @@ function ready() {
 function addToCartClicked(event) {
 	addToLocalStorage(event)
 	updateStorageTotal()
-
 }
 
 function addToLocalStorage(event) {
@@ -35,6 +34,7 @@ function addToLocalStorage(event) {
 		if (JSON.parse(localStorage.getItem('items')) === null) {
 			items.push(item);
 			localStorage.setItem("items", JSON.stringify(items));
+			alert('Item added to your cart :)');
 		} else {
 			let localItems = JSON.parse(localStorage.getItem("items"));
 			console.log(localItems)
@@ -47,6 +47,7 @@ function addToLocalStorage(event) {
 			if (there == true) {
 				alert('Item is already added to the cart.');
 			} else {
+				alert('Item added to your cart :)');
 				localItems.push(item);
 				localStorage.setItem('items', JSON.stringify(localItems));
 			}

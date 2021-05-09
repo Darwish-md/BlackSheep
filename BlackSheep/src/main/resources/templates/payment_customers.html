@@ -2,9 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<title>BlackSheep Payment Form</title>
-	<link rel="shortcut icon" href="/images/blacksheep.ico" type="image/x-icon"> 
-
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>BlackSheep E-commerce | Checkout</title>
+	<script th:replace="fragments/header :: header"></script>
+	
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 	<!-- library validate -->
@@ -20,6 +23,8 @@
 </head>
 
 <body>
+	<span th:replace="fragments/navigation-bar :: navigation-bar"></span>
+	<br><br>
 	<h2>Checkout Form</h2>
 	<div class="row">
 		<div class="col-75">
@@ -52,7 +57,7 @@
 							</div>
 						</div>
 						<div class="col-50">
-							<h3>Payment</h3>
+							<h3>Payment Information</h3>
 							<label for="fname">Accepted Cards</label>
 							<div class="icon-container">
 								<i class="fa fa-cc-visa" style="color:navy;"></i>
@@ -86,12 +91,15 @@
 							</div>
 						</div>
 					</div>
-					<button type="submit" class="btn checkout-btn">Continue to checkout</button>
+					<button type="submit" class="btn-chk btn-info checkout-btn">Continue to checkout</button>
 				</form>
 			</div>
 		</div>
 	</div>
 	<!-- script validate js -->
+	
+	<!-- fragemnt for footer -->
+	<span th:replace="fragments/footer :: footer"></span>
 
 </body>
 
