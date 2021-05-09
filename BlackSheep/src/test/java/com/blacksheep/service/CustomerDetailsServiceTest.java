@@ -10,7 +10,7 @@ class CustomerDetailsServiceTest {
 
 	@Test
 	public void generate_encrypted_password() {
-		String password = "123";
+		String password = "anything";
 		BCryptPasswordEncoder encoder =  new BCryptPasswordEncoder();
 		String encodedPassword = encoder.encode(password);
 		System.out.println(encodedPassword);
