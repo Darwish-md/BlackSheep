@@ -30,7 +30,7 @@ function ready() {
 				console.log(res)
 				localStorage.setItem("items", null)
 				localStorage.setItem("totalPrice", 0)
-				window.location.replace("/");
+				window.location.replace("/upon_checkout");
 			})
 			.catch (function(err) {
 		console.log(err);
@@ -76,17 +76,17 @@ $('#payment-form').validate({
 
 	},
 	messages: {
-		fullname: "Please input full name*",
-		email: "Please input email*",
-		city: "Please input city*",
-		address: "Please input address*",
-		state: "Please input state*",
-		zip: "Please input address*",
-		cardname: "Please input card name*",
-		cardnumber: "Please input card number*",
-		expmonth: "Please input exp month*",
-		expyear: "Please input exp year*",
-		cvv: "Please input cvv*",
+		fullname: "Please enter full name*",
+		email: "Please enter email*",
+		city: "Please enter city*",
+		address: "Please enter address*",
+		state: "Please enter state*",
+		zip: "Please enter address*",
+		cardname: "Please enter card name*",
+		cardnumber: "Please enter card number*",
+		expmonth: "Please enter exp month*",
+		expyear: "Please enter exp year*",
+		cvv: "Please enter cvv*",
 	},
 });
     }

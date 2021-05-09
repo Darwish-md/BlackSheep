@@ -15,7 +15,6 @@ function ready() {
 				'firstName': document.getElementById('firstName').value,
 				'lastName': document.getElementById('lastName').value,
 				'email': document.getElementById('email').value,
-				'password': document.getElementById('password').value,
 				'phone': document.getElementById('phone').value,
 				'city': document.getElementById('city').value,
 				'state': document.getElementById('state').value,
@@ -28,7 +27,10 @@ function ready() {
 				'X-CSRF-TOKEN': document.getElementsByClassName("csrf_token")[0].value
 			}
 		})
-			.then(function(res) { console.log(res) })
+			.then(function() { 
+				window.location.replace("/")
+				alert("Your changes have been saved") 
+				})
 			.catch(function(err) {
 				console.log(err);
 			})
