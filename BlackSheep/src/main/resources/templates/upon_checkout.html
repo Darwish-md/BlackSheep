@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<title>BlackSheep E-commerce | Checkout</title>
+
+
+	<!-- Custom stlylesheet -->
+	<link type="text/css" rel="stylesheet" th:href="@{/css/style-error.css}">
+
+	<!-- fragemnt for attached css files and scripts -->
+	<script th:replace="fragments/header :: header"></script>
+	<!-- Script Files-->
+	<script th:src="@{/scripts/cart.js}" async></script>
+</head>
+
+<body>
+	<!-- fragemnt for Navigation Bar -->
+	<span th:replace="fragments/navigation-bar :: navigation-bar"></span>
+
+	<!-- Page Content -->
+	<container>
+		<div style="padding: 18%;">
+			<h1>Thank You For Shopping With BlackSheep!</h1>
+		</div>
+	</container>
+	<!-- fragemnt for footer -->
+	<span th:replace="fragments/footer :: footer"></span>
+
+</body>
+
+</html>

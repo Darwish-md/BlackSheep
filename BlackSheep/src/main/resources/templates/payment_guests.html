@@ -1,32 +1,39 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 
 <head>
-	<title>BlackSheep Payment Form</title>
-	<link rel="shortcut icon" href="/images/blacksheep.ico" type="image/x-icon"> 
-	
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>BlackSheep E-commerce | Checkout</title>
+
+	<script th:replace="fragments/header :: header"></script>
+
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	
+
 	<!-- library validate -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.js"></script>
 	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/additional-methods.js"></script>
-	
+
 	<!-- style css -->
-	<link type="text/css" rel="stylesheet" th:href="@{/css/checkout-form-style.css}">
-	<script th:src="@{/scripts/payment_guests.js}" async></script>
+	<link type="text/css" rel="stylesheet" th:href="@{/css/checkout-form-style.css}" />
 
 </head>
 
 <body>
 
+	<span th:replace="fragments/navigation-bar :: navigation-bar"></span>
+	<br><br>
 	<h2>Checkout Form</h2>
 	<div class="row">
 		<div class="col-75">
 			<div class="container">
 				<form class="payment-form" method="POST" action="/payment_guests">
-				<input type="hidden" class="csrf_token" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+					<input type="hidden" class="csrf_token" th:name="${_csrf.parameterName}"
+						th:value="${_csrf.token}" />
 					<div class="row icon-relative">
 						<div class="col-50">
 							<h3>Shipping Address</h3>
@@ -58,7 +65,7 @@
 						</div>
 
 						<div class="col-50">
-							<h3>Payment</h3>
+							<h3>Payment Information</h3>
 							<label for="fname">Accepted Cards</label>
 							<div class="icon-container">
 								<i class="fa fa-cc-visa" style="color:navy;"></i>
@@ -92,12 +99,18 @@
 							</div>
 						</div>
 					</div>
-					<button type="submit" class="btn checkout-btn">Continue to checkout</button>
+					<button type="submit" id="btn-chk-out" class="btn-chk btn-info checkout-btn">Continue to checkout</button>
 				</form>
 			</div>
 		</div>
 	</div>
 	<!-- script validate js -->
+
+	<!-- fragemnt for footer -->
+	<span th:replace="fragments/footer :: footer"></span>
+	
+	
+	<script th:src="@{/scripts/payment_guests.js}" async></script>
 
 </body>
 
