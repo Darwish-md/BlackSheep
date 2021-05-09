@@ -1,8 +1,6 @@
 package com.blacksheep.domain;
 
 import java.io.Serializable;
-import java.util.Optional;
-
 import javax.persistence.CascadeType;
 import javax.persistence.Embeddable;
 import javax.persistence.ManyToOne;
