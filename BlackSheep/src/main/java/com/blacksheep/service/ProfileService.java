@@ -18,14 +18,9 @@ public class ProfileService {
 
 	public void editCustomerProfile(Customer customer, Profile profile) {
 		Customer myCustomer = customerRepo.findById(customer.getId()).orElse(null);
-		myCustomer.setFirstName(profile.getFirstName());
-		myCustomer.setLastName(profile.getLastName());
-		myCustomer.setEmail(profile.getEmail());
-		myCustomer.setStreetAddress(profile.getStreetAddress());
-		myCustomer.setPhone(profile.getPhone());
-		myCustomer.setCity(profile.getCity());
-		myCustomer.setState(profile.getState());
-		myCustomer.setPostalCode(profile.getPostalCode());
+		myCustomer.editCustomerDetails(profile.getFirstName(), profile.getLastName(), profile.getEmail(),
+				profile.getPhone(), profile.getStreetAddress(), profile.getCity(), profile.getState(),
+				profile.getPostalCode());
 		customerRepo.save(myCustomer);
 	}
 }
