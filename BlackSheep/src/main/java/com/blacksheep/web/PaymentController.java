@@ -19,6 +19,12 @@ public class PaymentController {
 
 	@Autowired
 	private PaymentService paymentService;
+	
+	@GetMapping("/upon_checkout")
+	public String thankUForm() {
+		return "upon_checkout";
+	}
+
 
 	@GetMapping("/customers_checkout")
 	public String customersCheckoutForm(ModelMap model, @AuthenticationPrincipal Customer customer) {

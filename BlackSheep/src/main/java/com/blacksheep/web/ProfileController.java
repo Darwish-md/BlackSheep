@@ -32,7 +32,7 @@ public class ProfileController {
 		try {
 
 			profileService.editCustomerProfile(customer, profile);
-			return "redirect:/profile";
+			return "redirect:/";
 
 		} catch (Exception e) {
 			throw e;
