@@ -56,6 +56,18 @@ public class Customer {
 		this.authorities = authorities;
 		this.orders = orders;
 	}
+	
+	public void editCustomerDetails(String firstName, String lastName, String email, String phone,
+			String streetAddress, String city, String state, String postalCode) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.phone = phone;
+		this.streetAddress = streetAddress;
+		this.city = city;
+		this.state = state;
+		this.postalCode = postalCode;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
