@@ -11,16 +11,18 @@ import com.blacksheep.domain.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-	@Query(value = " SELECT * FROM product " + "WHERE stock_quantity > IF(:inStock,  0, 0-1)"
-			+ "And category like coalesce(:category, '%') " + "And category_gender like coalesce(:categoryGender, '%') "
-			+ "And unit_price BETWEEN :min AND :max ", nativeQuery = true)
+	@Query(value = "SELECT * FROM product "
+			+ "WHERE stock_quantity > (SELECT CASE WHEN CAST(?1 AS BOOLEAN) THEN (SELECT CAST ('0' AS INTEGER)) ELSE (SELECT CAST ('-1' AS INTEGER)) END)  "
+			+ "AND category LIKE COALESCE(CAST(?2 AS TEXT), '%') "
+			+ "AND category_gender LIKE COALESCE(CAST(?3 AS TEXT), '%') "
+			+ "AND unit_price BETWEEN CAST(?4 AS INTEGER) AND CAST(?5 AS INTEGER) ", nativeQuery = true)
 	List<Product> findProducts(Boolean inStock, String category, String categoryGender, Integer min, Integer max);
 
-	@Query(value = "select max(unit_price) from product", nativeQuery = true)
+	@Query(value = "SELECT MAX(unit_price) FROM product", nativeQuery = true)
 	public Integer findMaxPrice();
-	
+
 //	public Optional<Product> findById(long id);
 
-	List<Product> findByCategory(String productCategory); 
+	List<Product> findByCategory(String productCategory);
 
 }
