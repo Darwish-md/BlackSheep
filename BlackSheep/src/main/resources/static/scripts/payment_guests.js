@@ -32,61 +32,61 @@ function ready() {
 				localStorage.setItem("totalPrice", 0)
 				window.location.replace("/upon_checkout");
 			})
-			.catch (function(err) {
-		console.log(err);
-	})
+			.catch(function(err) {
+				console.log(err);
+			})
+	}
+
+
+	$('#payment-form').validate({
+		roles: {
+			fullname: {
+				required: true,
+			},
+			email: {
+				required: true,
+			},
+			address: {
+				required: true,
+			},
+			city: {
+				required: true,
+			},
+			state: {
+				required: true,
+			},
+			zip: {
+				required: true,
+			},
+			cardname: {
+				required: true,
+			},
+			cardnumber: {
+				required: true,
+			},
+			expmonth: {
+				required: true,
+			},
+			expyear: {
+				required: true,
+			},
+			cvv: {
+				required: true,
+			},
+
+		},
+		messages: {
+			fullname: "Please enter full name*",
+			email: "Please enter email*",
+			city: "Please enter city*",
+			address: "Please enter address*",
+			state: "Please enter state*",
+			zip: "Please enter address*",
+			cardname: "Please enter card name*",
+			cardnumber: "Please enter card number*",
+			expmonth: "Please enter exp month*",
+			expyear: "Please enter exp year*",
+			cvv: "Please enter cvv*",
+		},
+	});
 }
-
-
-$('#payment-form').validate({
-	roles: {
-		fullname: {
-			required: true,
-		},
-		email: {
-			required: true,
-		},
-		address: {
-			required: true,
-		},
-		city: {
-			required: true,
-		},
-		state: {
-			required: true,
-		},
-		zip: {
-			required: true,
-		},
-		cardname: {
-			required: true,
-		},
-		cardnumber: {
-			required: true,
-		},
-		expmonth: {
-			required: true,
-		},
-		expyear: {
-			required: true,
-		},
-		cvv: {
-			required: true,
-		},
-
-	},
-	messages: {
-		fullname: "Please enter full name*",
-		email: "Please enter email*",
-		city: "Please enter city*",
-		address: "Please enter address*",
-		state: "Please enter state*",
-		zip: "Please enter address*",
-		cardname: "Please enter card name*",
-		cardnumber: "Please enter card number*",
-		expmonth: "Please enter exp month*",
-		expyear: "Please enter exp year*",
-		cvv: "Please enter cvv*",
-	},
-});
-    }
