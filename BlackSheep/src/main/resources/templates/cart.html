@@ -39,10 +39,10 @@
 			</div>
 
 			<form action="/guests_checkout" method="GET" sec:authorize="!isAuthenticated()">
-				<button type="submit" class="btn btn-info btn-purchase" >Proceed To Payment</button>
+				<button type="submit" class="btn btn-info btn-purchase" >Continue To Checkout</button>
 			</form>
 			<form action="/customers_checkout" method="GET" sec:authorize="isAuthenticated()">
-				<button type="submit" class="btn btn-purchase btn-info">Proceed To Payment</button>
+				<button type="submit" class="btn btn-purchase btn-info">Continue To Checkout</button>
 			</form>
 		</section>
 	</div>
