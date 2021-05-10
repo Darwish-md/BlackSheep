@@ -25,10 +25,6 @@ public class ProductsController {
 		try {
 			List<Product> products = productService.getAllProducts();
 
-
-			if (products.isEmpty()) {
-				throw new ResourceNotFoundException();
-			}
 			model.put("products", products);
 			return "products";
 			
@@ -40,7 +36,7 @@ public class ProductsController {
 	}
 
 	@GetMapping("/{productCategory}")
-	public String productsView(@PathVariable String productCategory,
+	public String showProductsByCategory(@PathVariable String productCategory,
 			@RequestParam(value = "productCategoryGender", required = false) String productCategoryGender,
 			@RequestParam(value = "inStock", required = false) boolean inStock,
 			@RequestParam(value = "min", required = false, defaultValue = "0") Integer min,
