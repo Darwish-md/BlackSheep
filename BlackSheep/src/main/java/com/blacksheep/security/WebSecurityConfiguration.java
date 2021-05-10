@@ -49,6 +49,7 @@ private UserDetailsService userDetailsService;
 				.antMatchers("/contact-form").permitAll()
 				.antMatchers("/payment_guests").permitAll()
 				.antMatchers("/guests_checkout").permitAll()
+				.antMatchers("/upon_checkout").permitAll()
 				.anyRequest().hasRole("CUSTOMER").and()
 			.formLogin()
 				.loginPage("/login").permitAll()
