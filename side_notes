@@ -11,3 +11,14 @@
 git branch -r | grep -v '\->' | while read remote; do git branch --track "${remote#origin/}" "$remote"; done
 10- To make it in readable format: SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss z"); formatter.format(date);
 11- missing: msg response for contact and for profile edit, login register contact buttons colors.
+12- if the local branch is 0 commits ahead and 1 or more commits behind, it can be fast-forwarded by git branch -f <LOCAL_BRANCH> -t <REMOTE_BRANCH>
+13-  By default, git pull does two things.
+     i.Updates the current local working branch (currently checked out branch)
+    ii.Updates the remote tracking branches for all other branches.
+14- Updating all my local branches is tedious:
+    git fetch --all
+    git rebase origin/master 
+    git checkout staging
+    git rebase origin/staging
+    git checkout production
+    git rebase origin/production    
