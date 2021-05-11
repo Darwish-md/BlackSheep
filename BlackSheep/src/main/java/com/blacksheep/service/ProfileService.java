@@ -12,11 +12,11 @@ public class ProfileService {
 	@Autowired
 	private CustomerRepository customerRepo;
 
-	public void editCustomerProfile(Customer customer, Profile profile) {
+	public Customer editCustomerProfile(Customer customer, Profile profile) {
 		Customer myCustomer = customerRepo.findById(customer.getId()).orElse(null);
 		myCustomer.editCustomerDetails(profile.getFirstName(), profile.getLastName(), profile.getEmail(),
 				profile.getPhone(), profile.getStreetAddress(), profile.getCity(), profile.getState(),
 				profile.getPostalCode());
-		customerRepo.save(myCustomer);
+		return customerRepo.save(myCustomer);
 	}
 }
