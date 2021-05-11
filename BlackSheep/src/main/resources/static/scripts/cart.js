@@ -7,13 +7,13 @@ if (document.readyState == 'loading') {
 function ready() {
 
 	showCartItems();
-    
+
 	var quantityInputs = document.getElementsByClassName('cart-quantity-input')
 	for (var i = 0; i < quantityInputs.length; i++) {
 		var input = quantityInputs[i]
 		input.addEventListener('change', quantityChanged)
-		}
-		
+	}
+
 	var removeCartItemButtons = document.getElementsByClassName('btn-danger')
 	for (var i = 0; i < removeCartItemButtons.length; i++) {
 		var button = removeCartItemButtons[i]
@@ -24,20 +24,20 @@ function ready() {
 
 
 function showCartItems() {
-        
-		const localItems = JSON.parse(localStorage.getItem('items'))
-		if (!localItems) {
-			length = 0;
-		} else {
-			length = localItems.length
-		}
-		for (var i = 0; i < length; i++) {
-			var cartRow = document.createElement('div')
-			cartRow.classList.add('cart-row')
-			var cartItems = document.getElementsByClassName('cart-items')[0]
 
-			itemToShow = localItems[i]
-			var cartRowContents = `
+	const localItems = JSON.parse(localStorage.getItem('items'))
+	if (!localItems) {
+		length = 0;
+	} else {
+		length = localItems.length
+	}
+	for (var i = 0; i < length; i++) {
+		var cartRow = document.createElement('div')
+		cartRow.classList.add('cart-row')
+		var cartItems = document.getElementsByClassName('cart-items')[0]
+
+		itemToShow = localItems[i]
+		var cartRowContents = `
       <div class="cart-item cart-column">
           <img class="cart-item-image" src="${itemToShow.imageSrc}" width="100" height="100">
           <span class="cart-item-title">${itemToShow.name}</span>
@@ -48,14 +48,14 @@ function showCartItems() {
           <input class="cart-quantity-input" type="number" value=${itemToShow.no}>
           <button class="btn btn-danger" type="button">Remove</button>
       </div>`
-			cartRow.innerHTML = cartRowContents
-			cartItems.append(cartRow)
-		}
-		var totalPrice = document.getElementsByClassName('cart-total-price')[0]
-		totalPrice.innerText = '$' + JSON.parse(localStorage.getItem('totalPrice'))
-
+		cartRow.innerHTML = cartRowContents
+		cartItems.append(cartRow)
 	}
-	
+	var totalPrice = document.getElementsByClassName('cart-total-price')[0]
+	totalPrice.innerText = '$' + JSON.parse(localStorage.getItem('totalPrice'))
+
+}
+
 function quantityChanged(event) {
 	var input = event.target
 	if (isNaN(input.value) || input.value <= 0) {
@@ -71,7 +71,7 @@ function updateStorageQuantity(event) {
 	var newQuantity = button.value
 	const id = shopItem.getElementsByClassName('cart-item-id')[0].innerText
 	if (typeof (Storage) !== 'undefined') {
-		let localItems = JSON.parse(localStorage.getItem("items"));
+		var localItems = JSON.parse(localStorage.getItem("items"));
 		for (let i = 0; i < localItems.length; i++) {
 			if (localItems[i].id == id) {
 				localItems[i].no = parseInt(newQuantity)
@@ -79,6 +79,11 @@ function updateStorageQuantity(event) {
 			}
 		}
 		localStorage.setItem('items', JSON.stringify(localItems));
+		var totalItems = 0
+		for (let i = 0; i < localItems.length; i++) {
+			totalItems += localItems[i].no
+		}
+		document.getElementById("lblCartCount").innerText = totalItems
 	}
 
 	else {
@@ -99,12 +104,16 @@ function removeFromLocalStorage(event) {
 	const localItems = JSON.parse(localStorage.getItem('items'))
 	for (var i = 0; i < localItems.length; i++) {
 		if (localItems[i].id == id) {
-			localItems.splice(i,1)
+			localItems.splice(i, 1)
 			localStorage.setItem('items', JSON.stringify(localItems))
 			break
 		}
 	}
-	
+	var totalItems = 0
+	for (let i = 0; i < localItems.length; i++) {
+		totalItems += localItems[i].no
+	}
+	document.getElementById("lblCartCount").innerText = totalItems
 }
 
 

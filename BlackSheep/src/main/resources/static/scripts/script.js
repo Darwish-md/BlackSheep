@@ -11,7 +11,14 @@ function ready() {
 		var button = addToCartButtons[i]
 		button.addEventListener('click', addToCartClicked)
 	}
-	
+
+	var localItems = JSON.parse(localStorage.getItem("items"))
+	var totalItems = 0
+	for (let i = 0; i < localItems.length; i++) {
+		totalItems += localItems[i].no
+	}
+	document.getElementById("lblCartCount").innerText = totalItems
+
 }
 
 function addToCartClicked(event) {
@@ -34,9 +41,8 @@ function addToLocalStorage(event) {
 		if (JSON.parse(localStorage.getItem('items')) === null) {
 			items.push(item);
 			localStorage.setItem("items", JSON.stringify(items));
-			alert('Item added to your cart :)');
 		} else {
-			let localItems = JSON.parse(localStorage.getItem("items"));
+			var localItems = JSON.parse(localStorage.getItem("items"));
 			console.log(localItems)
 			let there = false;
 			for (let i = 0; i < localItems.length; i++) {
@@ -44,15 +50,20 @@ function addToLocalStorage(event) {
 					there = true;
 				}
 			}
-			if (there == true) {
-				alert('Item is already added to the cart.');
-			} else {
-				alert('Item added to your cart :)');
+			if (there == true){
+				alert("Item Already Added To Cart")
+			} 
+			else {
 				localItems.push(item);
 				localStorage.setItem('items', JSON.stringify(localItems));
 			}
 
 		}
+		var totalItems = 0
+		for (let i = 0; i < localItems.length; i++) {
+			totalItems += localItems[i].no
+		}
+		document.getElementById("lblCartCount").innerText = totalItems
 	} else {
 		alert('local storage is not working on your browser go & update it');
 	}
@@ -65,7 +76,7 @@ function updateStorageTotal() {
 	for (let i = 0; i < localItems.length; i++) {
 		var price = localItems[i].price
 		var quantity = localItems[i].no
-		total = total + ( price * quantity)
+		total = total + (price * quantity)
 	}
 	total = Math.round(total * 100) / 100
 	localStorage.setItem("totalPrice", JSON.stringify(total))
