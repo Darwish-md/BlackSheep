@@ -47,14 +47,6 @@ class ProfileControllerTests {
 	} 
 	
 	@Test
-	void testGetProfilePage() throws Exception {
-
-		String url = "/profile";
-		MvcResult mvcResult = mockMvc.perform(get(url).with(rob()).with(csrf())).andReturn();
-		assertEquals(mvcResult.getResponse().getStatus(), 200);
-	}
-	
-	@Test
 	void testEditProfile() throws Exception {
 		Customer customer = new Customer(1,"Talha", "Zafar", "email1@test.com", null, 
 				"068234653245", "street 1", "Debrecen", "Hajdu-Bihar", "4023", null, null);
