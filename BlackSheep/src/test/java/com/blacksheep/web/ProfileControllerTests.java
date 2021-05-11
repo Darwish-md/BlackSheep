@@ -1,6 +1,9 @@
 package com.blacksheep.web;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.user;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,6 +14,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
+import org.springframework.test.web.servlet.request.RequestPostProcessor;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -22,7 +26,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 @WebMvcTest(ProfileController.class)
-class ProfileControllerTest {
+class ProfileControllerTests {
 	
 	@Autowired
 	private MockMvc mockMvc;
@@ -36,6 +40,18 @@ class ProfileControllerTest {
 	@BeforeEach()
 	public void setup() {
 	    mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+	}
+	
+	public static RequestPostProcessor rob() {
+		return user("rob").roles("ADMIN");
+	} 
+	
+	@Test
+	void testGetMainPage() throws Exception {
+
+		String url = "/profile";
+		MvcResult mvcResult = mockMvc.perform(get(url).with(rob()).with(csrf())).andReturn();
+		assertEquals(mvcResult.getResponse().getStatus(), 200);
 	}
 	
 	@Test
