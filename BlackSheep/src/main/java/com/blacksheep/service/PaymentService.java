@@ -56,7 +56,7 @@ public class PaymentService {
 		orderToInsert.setCustomer(customer);
 	}
 	
-	public void recordNewGuestOrder(PaymentGuestForm paymentGuestForm) {
+	public Guest recordNewGuestOrder(PaymentGuestForm paymentGuestForm) {
 		Order newOrder = new Order();
 		orderRepo.save(newOrder);
 		Order orderToInsert = orderRepo.findById(newOrder.getId()).orElse(null);
@@ -78,9 +78,9 @@ public class PaymentService {
 				paymentGuestForm.getPostalCode());
 
 		Guest guest = new Guest(paymentGuestForm.getFullName(), paymentGuestForm.getEmail());
-		guestRepo.save(guest);
-
 		orderToInsert.setGuest(guest);
+		
+		return guestRepo.save(guest);
 	}
 
 }

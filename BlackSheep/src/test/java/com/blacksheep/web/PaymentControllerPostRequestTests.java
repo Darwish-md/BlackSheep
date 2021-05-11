@@ -1,8 +1,7 @@
 package com.blacksheep.web;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -25,7 +24,7 @@ import com.fasterxml.jackson.databind.ObjectWriter;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 @WebMvcTest(PaymentController.class)
-class PaymentControllerTests {
+class PaymentControllerPostRequestTests {
 	
 	@Autowired
 	private MockMvc mockMvc;
@@ -45,7 +44,7 @@ class PaymentControllerTests {
 	
 	@Test
 	void testProcessGuestPayment() throws Exception {
-		PaymentGuestForm guestPaymentDetails = new PaymentGuestForm(null, (float) 0, "Mahmoud Darwish", "darwish@test.com", 
+		PaymentGuestForm guestPaymentDetails = new PaymentGuestForm(null, 2756f, "Mahmoud Darwish", "darwish@test.com", 
 				"Kasssai Ut", "Debrecen", "Hajdu-Bihar", "4032");
 		
 		Guest savedGuestDetails = new Guest("Mahmoud Darwish", "darwish@test.com");
@@ -64,31 +63,5 @@ class PaymentControllerTests {
 		
 		assertEquals(mvcResult.getResponse().getStatus(), 200);
 	}
-	
-
-	@Test
-	void testGetUponCheckoutPage() throws Exception {
-		String url = "/upon_checkout";
-		MvcResult mvcResult = mockMvc.perform(get(url)).andReturn();
-		assertEquals(mvcResult.getResponse().getStatus(), 200);
-	}
-	
-	
-//	@Test
-//	void testGetCustomerCheckoutPage() throws Exception {
-//		String url = "/payment_customers";
-//		MvcResult mvcResult = mockMvc.perform(get(url).with(csrf())).andReturn();
-//		assertEquals(mvcResult.getResponse().getStatus(), 200);
-//	}
-	
-	
-	@Test
-	void testGetGuestsCheckoutPage() throws Exception {
-		String url = "/guests_checkout";
-		MvcResult mvcResult = mockMvc.perform(get(url)).andReturn();
-		assertEquals(mvcResult.getResponse().getStatus(), 200);
-	}
-	
-	
 
 }

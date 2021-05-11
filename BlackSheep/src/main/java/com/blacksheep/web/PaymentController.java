@@ -39,11 +39,11 @@ public class PaymentController {
 
 	@PostMapping("/payment_customers")
 	@Transactional
-	public String processcustomerPayment(@AuthenticationPrincipal Customer customer,
+	public int processCustomerPayment(@AuthenticationPrincipal Customer customer,
 			@RequestBody PaymentCustomerForm paymentCustomerForm) throws InternalServerErrorException {
 		try {
 			paymentService.recordNewCustomerOrder(customer, paymentCustomerForm);
-			return "redirect:/";
+			return 0;
 		} catch (Exception e) {
 			throw e;
 		}
@@ -51,11 +51,11 @@ public class PaymentController {
 
 	@PostMapping("/payment_guests")
 	@Transactional
-	public String processGuestPayment(@RequestBody PaymentGuestForm paymentguestForm)
+	public int processGuestPayment(@RequestBody PaymentGuestForm paymentguestForm)
 			throws InternalServerErrorException {
 		try {
 			paymentService.recordNewGuestOrder(paymentguestForm);
-			return "redirect:/";
+			return 0;
 		} catch (Exception e) {
 			throw e;
 		}

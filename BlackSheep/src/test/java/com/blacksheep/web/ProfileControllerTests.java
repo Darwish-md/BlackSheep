@@ -47,7 +47,7 @@ class ProfileControllerTests {
 	} 
 	
 	@Test
-	void testGetMainPage() throws Exception {
+	void testGetProfilePage() throws Exception {
 
 		String url = "/profile";
 		MvcResult mvcResult = mockMvc.perform(get(url).with(rob()).with(csrf())).andReturn();

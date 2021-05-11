@@ -15,7 +15,6 @@ class CustomerDetailsServiceTest {
 		String encodedPassword = encoder.encode(password);
 		System.out.println(encodedPassword);
 		assertNotEquals(password, encodedPassword);
-//		assertThat(password, is(not(equalTo(encodedPassword));
 	}
 
 }
