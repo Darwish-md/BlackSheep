@@ -15,6 +15,24 @@ public class Profile {
 	private String streetAddress;
 	private String postalCode;
 
+	public Profile() {
+		super();
+	}
+
+	public Profile(String firstName, String lastName, String email, String password, String phone, String city,
+			String state, String streetAddress, String postalCode) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.password = password;
+		this.phone = phone;
+		this.city = city;
+		this.state = state;
+		this.streetAddress = streetAddress;
+		this.postalCode = postalCode;
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -86,4 +104,12 @@ public class Profile {
 	public void setPostalCode(String postalCode) {
 		this.postalCode = postalCode;
 	}
+
+	@Override
+	public String toString() {
+		return "Profile [firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", password="
+				+ password + ", phone=" + phone + ", city=" + city + ", state=" + state + ", streetAddress="
+				+ streetAddress + ", postalCode=" + postalCode + "]";
+	}
+	
 }
